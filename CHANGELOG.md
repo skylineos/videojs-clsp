@@ -1,7 +1,52 @@
 
-# CLSP Changelog
+# CLSP VideoJS Plugin Changelog <!-- omit in toc -->
 
-## v0.17.0 - 2020-02-11 - Critical
+## Table of Contents <!-- omit in toc -->
+
+- [CLSP VideoJS Plugin](#clsp-videojs-plugin)
+    - [v0.18.0-1 - 2020-04-06 - Critical](#v0180-1---2020-04-06---critical)
+- [Pre CLSP Player](#pre-clsp-player)
+    - [v0.17.0-1 - 2020-02-11 - Critical](#v0170-1---2020-02-11---critical)
+    - [v0.16.3 - 2019-08-15 - Recommended](#v0163---2019-08-15---recommended)
+    - [v0.16.0 - 2019-05-15 - Recommended](#v0160---2019-05-15---recommended)
+    - [v0.15.0 - 2018-12-07 - Critical](#v0150---2018-12-07---critical)
+    - [v0.13.11 - 2018-12-07 - Critical](#v01311---2018-12-07---critical)
+    - [v0.13.10 - 2018-10-13 - Critical](#v01310---2018-10-13---critical)
+    - [v0.13.9 - 2018-10-13 - Critical](#v0139---2018-10-13---critical)
+    - [v0.13.8 - 2018-11-14 - Critical](#v0138---2018-11-14---critical)
+    - [v0.13.7 - 2018-11-13 - Optional](#v0137---2018-11-13---optional)
+    - [v0.13.6 - 2018-11-13 - Critical](#v0136---2018-11-13---critical)
+    - [v0.13.5 - 2018-10-31 - Critical](#v0135---2018-10-31---critical)
+    - [v0.13.4 - 2018-08-27 - Critical](#v0134---2018-08-27---critical)
+    - [v0.12.1 - 2018-08-27 - Optional](#v0121---2018-08-27---optional)
+    - [v0.12.0 - 2018-08-13 - Critical](#v0120---2018-08-13---critical)
+    - [v0.10.2 - 2018-08-27 - Optional](#v0102---2018-08-27---optional)
+    - [v0.10.0 - 2018-08-01 - Critical](#v0100---2018-08-01---critical)
+    - [v0.1.5 - 2017-08-27 - Critical](#v015---2017-08-27---critical)
+- [Appendices](#appendices)
+    - [Status Definitions](#status-definitions)
+
+
+## CLSP VideoJS Plugin
+
+### v0.18.0-1 - 2020-04-06 - Critical
+
+* publish to NPM registry!
+* dist files are no longer part of source control
+* dist files get generated during publish
+* remove all clsp-player assets, logic, dependencies, etc.
+* update all dependencies
+* update all demos to not explicitly say "withVideoJs"
+* advanced demo now uses src assets, not dist assets
+* remove all vagrant assets
+* simplify webpack config
+* replace extract-text-webpack-plugin with mini-css-extract-plugin
+
+## Pre CLSP Player
+
+### v0.17.0-1 - 2020-02-11 - Critical
+
+Note that version 0.17 was never released.
 
 * change the videojs element class from `vjs-mse-over-mqtt` to `vjs-clsp`
 * update vulnerable dependencies
@@ -29,7 +74,7 @@
 * create constants for Conduit and Router events
 * document Conduit and Router classes and files
 
-## v0.16.3 - 2019-08-15 - Recommended
+### v0.16.3 - 2019-08-15 - Recommended
 
 * Add debug logs
 * emit "firstFrameShown" event
@@ -38,7 +83,7 @@
 * update destroy logic
 
 
-## v0.16.0 - 2019-05-15 - Recommended
+### v0.16.0 - 2019-05-15 - Recommended
 
 * Remove debug statements appearing as console errors
 * Update all outdated npm dependencies
@@ -64,7 +109,7 @@
 * Moved internal-developer-specific stuff from the README into DEVELOPERS.md
 
 
-## v0.15.0 - 2018-12-07 - Critical
+### v0.15.0 - 2018-12-07 - Critical
 
 * update to node 10.15
 * move to yarn from npm
@@ -76,17 +121,17 @@
 * fix window minimize memory leak
 
 
-## v0.13.11 - 2018-12-07 - Critical
+### v0.13.11 - 2018-12-07 - Critical
 
 * lock down paho version to ensure it doesn't update to 1.1.0, which is incompatible
 
 
-## v0.13.10 - 2018-10-13 - Critical
+### v0.13.10 - 2018-10-13 - Critical
 
 * fix chrome detection for chrome v71
 
 
-## v0.13.9 - 2018-10-13 - Critical
+### v0.13.9 - 2018-10-13 - Critical
 
 * update most outdated libraries
 * update video.js version
@@ -100,7 +145,7 @@
 * when the buffer gets full, flush it
 
 
-## v0.13.8 - 2018-11-14 - Critical
+### v0.13.8 - 2018-11-14 - Critical
 
 * fix unresolved sourceBuffer destroy
 * ensure the asynchronous destroy logic can finish before videojs dispose runs/finishes
@@ -108,12 +153,12 @@
 * move videojs-errors into devdependencies
 
 
-## v0.13.7 - 2018-11-13 - Optional
+### v0.13.7 - 2018-11-13 - Optional
 
 * set the default timeout back to 2 minutes
 
 
-## v0.13.6 - 2018-11-13 - Critical
+### v0.13.6 - 2018-11-13 - Critical
 
 * fix async calls
 * destroy self on player dispose
@@ -124,7 +169,7 @@
 * reset videojs-errors after responding to recoverable errors
 
 
-## v0.13.5 - 2018-10-31 - Critical
+### v0.13.5 - 2018-10-31 - Critical
 
 * fix tab switching memory leak
 * disable metrics by default to improve performance
@@ -146,7 +191,7 @@
 * trigger a 'firstFrameShown' event on the videojs player instance so that the listener can be registered prior to iovplayer instantiation
 
 
-## v0.13.4 - 2018-08-27 - Critical
+### v0.13.4 - 2018-08-27 - Critical
 
 * tours are no longer supported - must be implemented by the caller
 * fix high quality stream playback (streams with large segment intervals)
@@ -168,12 +213,12 @@
 * update dependencies
 
 
-## v0.12.1 - 2018-08-27 - Optional
+### v0.12.1 - 2018-08-27 - Optional
 
 * improve demo page
 
 
-## v0.12.0 - 2018-08-13 - Critical
+### v0.12.0 - 2018-08-13 - Critical
 
 * metric collection and calculation
 * implement a queue to reduce unecessarily-dropped video segments
@@ -193,12 +238,12 @@
 * update dependencies
 
 
-## v0.10.2 - 2018-08-27 - Optional
+### v0.10.2 - 2018-08-27 - Optional
 
 * improve demo page
 
 
-## v0.10.0 - 2018-08-01 - Critical
+### v0.10.0 - 2018-08-01 - Critical
 
 * first stable production-ready build
 * support cycling through multiple clsp streams (tours)
@@ -213,7 +258,7 @@
 * decrease coupling between videojs and iovPlayer
 
 
-## v0.1.5 - 2017-08-27 - Critical
+### v0.1.5 - 2017-08-27 - Critical
 
 * first stable proof of concept
 * rudimentary demo page
