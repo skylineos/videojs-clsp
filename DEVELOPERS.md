@@ -71,18 +71,6 @@ The generated files will be available in the `dist` directory.
 1. click play on the video element (if not using an autoplay player)
 
 
-## Vagrant
-
-1. `cp scripts/deploy/Vagrantfile ..`
-1. `vagrant destroy -f && vagrant up && vagrant ssh`
-1. `cd /vagrant/clsp-videojs-plugin`
-1. `rm -rf node_modules`
-1. `sudo scripts/deploy/provision-bootstrap.sh`
-1. `yarn install`
-1. `yarn run serve:vagrant`
-1. [http://5.5.5.4:8080](http://5.5.5.4:8080)
-
-
 ## Versioning
 
 @see:

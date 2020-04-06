@@ -77,7 +77,7 @@ Add the following entry to your `package.json` `dependencies` object:
 ```javascript
 "dependencies": {
   // ...
-  "videojs-mse-over-clsp": "git+https://github.com/skylineos/clsp-videojs-plugin.git#v0.15.0",
+  "videojs-mse-over-clsp": "git+https://github.com/skylineos/videojs-clsp.git#v0.15.0",
 }
 ```
 
@@ -87,8 +87,8 @@ This plugin is not currently published on NPM.  We will be publishing it soon.
 ### Via Git
 
 ```
-git clone https://github.com/skylineos/clsp-videojs-plugin.git
-cd clsp-videojs-plugin
+git clone https://github.com/skylineos/videojs-clsp.git
+cd videojs-clsp
 yarn install
 ```
 

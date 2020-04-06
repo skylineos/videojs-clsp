@@ -1,10 +1,13 @@
 'use strict';
 
-import 'srcdoc-polyfill';
+import '../styles/videojs-mse-over-clsp.scss';
 
-import '../utils/';
 import plugin from './plugin';
-import '../../styles/videojs-mse-over-clsp.scss';
+import utils from './utils';
+
+if (!window.clspUtils) {
+  window.clspUtils = utils;
+}
 
 const clspPlugin = plugin();
 

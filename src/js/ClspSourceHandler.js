@@ -4,13 +4,11 @@
 // provide videojs on `window`
 import videojs from 'video.js';
 
-import Logger from '../utils/logger';
 import ClspHandler from './ClspHandler';
-
-const SUPPORTED_MIME_TYPE = "video/mp4; codecs='avc1.42E01E'";
+import utils from './utils';
 
 export default function () {
-  const logger = Logger().factory('ClspSourceHandler');
+  const logger = utils.Logger().factory('ClspSourceHandler');
 
   return function (mode) {
     const obj = {
@@ -64,7 +62,7 @@ export default function () {
       canPlayType: function (type) {
         logger.debug('canPlayType');
 
-        if (type === SUPPORTED_MIME_TYPE) {
+        if (utils.isSupportedMimeType(type)) {
           return 'maybe';
         }
 

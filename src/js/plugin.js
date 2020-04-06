@@ -5,8 +5,7 @@
 import videojs from 'video.js';
 
 import ClspSourceHandler from './ClspSourceHandler';
-import utils from '../utils/';
-import Logger from '../utils/logger';
+import utils from './utils';
 
 const Plugin = videojs.getPlugin('plugin');
 
@@ -14,7 +13,7 @@ const Plugin = videojs.getPlugin('plugin');
 const VIDEOJS_ERRORS_PLAYER_CURRENT_TIME_MIN = 1;
 const VIDEOJS_ERRORS_PLAYER_CURRENT_TIME_MAX = 20;
 
-const logger = Logger().factory('clsp-videojs-plugin');
+const logger = utils.Logger().factory('videojs-clsp');
 
 let totalPluginCount = 0;
 
@@ -63,7 +62,7 @@ export default (defaultOptions = {}) => class ClspPlugin extends Plugin {
     super(player, options);
 
     this.id = ++totalPluginCount;
-    this.logger = Logger().factory(`CLSP Plugin ${this.id}`);
+    this.logger = utils.Logger().factory(`CLSP Plugin ${this.id}`);
 
     this.logger.debug('creating plugin instance');
 

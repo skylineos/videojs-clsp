@@ -3,10 +3,10 @@
 // This is configured as an external library by webpack, so the caller must
 // provide videojs on `window`
 import videojs from 'video.js';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
+import IovCollection from '@skylineos/clsp-player/src/js/iov/IovCollection';
 
-import IovCollection from '../iov/IovCollection';
-import Logger from '../utils/logger';
+import utils from './utils';
 
 const Component = videojs.getComponent('Component');
 
@@ -20,7 +20,7 @@ export default class ClspHandler extends Component {
   ) {
     super(tech, options.clsp);
 
-    this.logger = Logger().factory('ClspHandler');
+    this.logger = utils.Logger().factory('ClspHandler');
 
     this.logger.debug('constructor');
 

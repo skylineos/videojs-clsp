@@ -6,7 +6,7 @@ mkdir "${VERSION}"
 
 cd "${VERSION}"
 
-git clone https://github.com/skylineos/clsp-videojs-plugin.git .
+git clone https://github.com/skylineos/videojs-clsp.git .
 
 git checkout "${VERSION}"
 
