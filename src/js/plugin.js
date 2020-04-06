@@ -34,7 +34,7 @@ export default (defaultOptions = {}) => class ClspPlugin extends Plugin {
     const sourceHandler = ClspSourceHandler()('html5');
 
     videojs.getTech('Html5').registerSourceHandler(sourceHandler, 0);
-    videojs.registerPlugin(utils.name, ClspPlugin);
+    videojs.registerPlugin(utils.pluginName, ClspPlugin);
 
     logger.debug('plugin registered');
 

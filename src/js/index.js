@@ -1,6 +1,6 @@
 'use strict';
 
-import '../styles/videojs-mse-over-clsp.scss';
+import '../styles/videojs-clsp.scss';
 
 import plugin from './plugin';
 import utils from './utils';

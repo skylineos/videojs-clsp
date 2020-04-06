@@ -2,6 +2,8 @@
  * video.js and videojs errors style overrides
  */
 
+// @todo - should we import the default videojs styles here?
+
 .video-js {
   // This class is added to the video.js element by the plugin by default.
   &.vjs-clsp {
