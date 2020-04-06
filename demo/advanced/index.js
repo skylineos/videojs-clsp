@@ -10,17 +10,18 @@ import 'videojs-errors';
 import {
   version as videojsErrorsVersion,
 } from 'videojs-errors/package.json';
-
-import packageJson from '~root/package.json';
 import {
   onLoad,
   initializeWall,
   initLocalStorage,
-} from '../advancedStandalone/shared';
+} from '@skylineos/clsp-player/demo/advanced/shared';
+
+import utils from '~root/src/js/utils';
+import '~root/src/js/index';
 
 window.videojs = videojs;
 
-window.CLSP_DEMO_VERSION = packageJson.version;
+window.CLSP_DEMO_VERSION = utils.version;
 
 let wallPlayers = [];
 

@@ -13,7 +13,7 @@
     >
     <link
       rel="stylesheet"
-      href="../../dist/videojs-mse-over-clsp.css"
+      href="../../dist/videojs-clsp.css"
     >
     <link
       rel="stylesheet"
@@ -27,9 +27,12 @@
     >
     <script
       type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@babel/polyfill@7.7.0/dist/polyfill.min.js"
+      src="https://cdn.jsdelivr.net/npm/@babel/polyfill@7.8.7/dist/polyfill.min.js"
     ></script>
-    <script src="https://vjs.zencdn.net/7.6.6/video.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://vjs.zencdn.net/7.6.6/video.min.js"
+    ></script>
   </head>
   <body>
     <h1>Simple CLSP with VideoJs Plugin Demo</h1>
@@ -57,10 +60,16 @@
       <button onclick="onDestroy()" title="destroy"><i class="fas fa-bomb"></i></button>
     </div>
 
-    <script src="../../dist/videojs-mse-over-clsp.min.js"></script>
-    <script src="./index.js"></script>
+    <script
+      type="text/javascript"
+      src="../../dist/videojs-clsp.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./index.js"
+    ></script>
 
-    <script>
+    <script type="text/javascript">
       main();
     </script>
   </body>

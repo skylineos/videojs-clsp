@@ -14,7 +14,7 @@ const defaultClspUrls = [
 
 // Run this when the demo page loads
 export function onLoad () {
-  const pageTitle = `CLSP ${window.CLSP_DEMO_VERSION} Demo Page`;
+  const pageTitle = `CLSP VideoJS Plugin ${window.CLSP_DEMO_VERSION} Demo Page`;
   document.title = pageTitle;
 
   $('#page-title-version').html(window.CLSP_DEMO_VERSION);

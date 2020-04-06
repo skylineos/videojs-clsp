@@ -2,17 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Advanced CLSP Standalone Demo</title>
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link href="../../dist/videojs-mse-over-clsp.css" rel="stylesheet">
-    <link href="../../dist/advancedStandalone.css" rel="stylesheet">
-    <script src="../../dist/advancedStandalone.js"></script>
+    <title>Advanced CLSP with VideoJs Plugin Demo</title>
+    <link
+      rel="shortcut icon"
+      href="../favicon.ico"
+    >
+    <link
+      href="../../dist/demo-advanced.css"
+      rel="stylesheet"
+    >
+    <script
+      type="text/javascript"
+      src="../../dist/demo-advanced.js"
+    ></script>
   </head>
   <body>
     <div class="page-header">
       <img src="../skyline_logo.png" />
-      <h1>Advanced CLSP Standalone Demo</h1>
+      <h1>Advanced CLSP with VideoJs Plugin Demo</h1>
       <h1 id="page-title-version">--version not yet loaded--</h1>
+      <div class="dependency-versions">
+        <span>video.js:</span>
+        <span id="page-title-videojs-version">--version not yet loaded--</span>
+        <span>videojs-errors:</span>
+        <span id="page-title-videojs-error-version">--version not yet loaded--</span>
+      </div>
     </div>
 
     <div class="page-body">
@@ -150,14 +164,10 @@
           <button class="close">&times;</button>
         </div>
         <div class="video-container">
-          <div class="clsp-video-container">
-            <video></video>
-          </div>
+          <video class="video-js vjs-default-skin"></video>
         </div>
         <div class="wall-video-metrics video-metrics"></div>
       </div>
     </template>
-
-    <script src="../../dist/iovPlayer.min.js"></script>
   </body>
 </html>
