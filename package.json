@@ -3,7 +3,6 @@
   "title": "Skyline CLSP VideoJS Plugin",
   "version": "0.0.0",
   "description": "Video JS plugin for Skyline Technology Solutions' CLSP Player - https://github.com/skylineos/clsp-player",
-  "main": "dist/videojs-clsp.js",
   "keywords": [
     "html5",
     "clsp",
@@ -14,6 +13,8 @@
     "skyline"
   ],
   "license": "MIT",
+  "repository": "https://github.com/skylineos/videojs-clsp.git",
+  "main": "dist/videojs-clsp.js",
   "scripts": {
     "build": "./scripts/build.sh",
     "serve": "./scripts/serve.sh",
@@ -44,9 +45,9 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
-    "extract-text-webpack-plugin": "4.0.0-beta.0",
     "humanize": "0.0.9",
     "jquery": "3.4.1",
+    "mini-css-extract-plugin": "0.9.0",
     "moment": "2.24.0",
     "node-sass": "4.13.1",
     "progress-bar-webpack-plugin": "2.1.0",

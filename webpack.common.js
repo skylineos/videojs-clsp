@@ -3,12 +3,12 @@
 const path = require('path');
 const chalk = require('chalk');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 
-const packageJson = require('./package.json');
+const utils = require('./src/js/utils');
 
-const DESTINATION_PATH = path.resolve(__dirname, 'dist');
+const devMode = process.env.NODE_ENV !== 'production';
 
 function generateProgressBarPlugin (name) {
   const building = chalk.bold(`Building ${name} page...`);
@@ -22,218 +22,142 @@ function generateProgressBarPlugin (name) {
   });
 }
 
-function generateExtractSassPlugin () {
-  // @see - https://github.com/webpack-contrib/sass-loader
-  return new ExtractTextPlugin({
-    filename: '[name].css',
-  });
-}
-
-function generateWriteFilePlugin () {
-  return new WriteFilePlugin();
-}
-
-function generateJsRule (srcPath) {
-  return {
-    test: /\.js$/,
-    loader: 'babel-loader?cacheDirectory=true',
-    options: {
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            exclude: [
-              '@babel/plugin-transform-typeof-symbol',
-            ],
-          },
-        ],
-      ],
-      plugins: [
-        '@babel/plugin-syntax-dynamic-import',
-        '@babel/plugin-proposal-object-rest-spread',
-        '@babel/plugin-proposal-class-properties',
-      ],
-    },
-    // @see - https://github.com/webpack/webpack/issues/2031
-    include: [
-      srcPath,
-      // @see - https://github.com/visionmedia/debug/issues/668
-      path.resolve(
-        __dirname,
-        'node_modules',
-        'debug'
-      ),
-    ],
-  };
-}
-
-function generateStyleRules (extractSass) {
-  return [
-    // @todo - postcss?
-    // @see - https://github.com/bensmithett/webpack-css-example/blob/master/webpack.config.js
-    {
-      test: /\.(eot|svg|ttf|woff|woff2)$/,
-      loader: 'url-loader',
-    },
-    {
-      test: /\.s?css$/,
-      use: extractSass.extract({
-        fallback: 'style-loader',
-        use: [
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'sass-loader',
-          },
-        ],
-      }),
-    },
-  ];
-}
-
-function generateClspConfig () {
-  const name = packageJson.name;
-  const srcPath = path.resolve(
-    __dirname,
-    'src',
-    'js'
-  );
-
-  const extractSass = generateExtractSassPlugin();
-
+function generateConfig (name, entry) {
   return {
     name,
     entry: {
       // @see - https://github.com/webpack-contrib/webpack-serve/issues/27
       [name]: [
-        path.resolve(
-          srcPath,
-          'video-js-plugin',
-          'index.js'
-        ),
-      ],
-      iovPlayer: [
-        path.resolve(
-          srcPath,
-          'iov',
-          'index.js'
-        ),
+        entry,
       ],
     },
     output: {
-      path: DESTINATION_PATH,
+      path: path.resolve(
+        __dirname,
+        'dist'
+      ),
       filename: '[name].js',
     },
     module: {
       rules: [
-        generateJsRule(srcPath),
-        ...generateStyleRules(extractSass),
+        {
+          test: /\.js$/,
+          loader: 'babel-loader?cacheDirectory=true',
+          options: {
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  exclude: [
+                    '@babel/plugin-transform-typeof-symbol',
+                  ],
+                },
+              ],
+            ],
+            plugins: [
+              '@babel/plugin-syntax-dynamic-import',
+              '@babel/plugin-proposal-object-rest-spread',
+              '@babel/plugin-proposal-class-properties',
+            ],
+          },
+          // @see - https://github.com/webpack/webpack/issues/2031
+          include: [
+            path.resolve(
+              __dirname,
+              'src'
+            ),
+            path.resolve(
+              __dirname,
+              'demo'
+            ),
+            // @see - https://github.com/visionmedia/debug/issues/668
+            path.resolve(
+              __dirname,
+              'node_modules',
+              'debug'
+            ),
+            path.resolve(
+              __dirname,
+              'node_modules',
+              '@skylineos',
+              'clsp-player'
+            ),
+            function (filepath) {
+              return filepath.includes('clsp-player');
+            },
+          ],
+        },
+        // @see - https://github.com/bensmithett/webpack-css-example/blob/master/webpack.config.js
+        {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loader: 'url-loader',
+        },
+        {
+          // @see - https://github.com/webpack-contrib/mini-css-extract-plugin
+          // @see - https://github.com/webpack-contrib/sass-loader
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                hmr: devMode,
+              },
+            },
+            'css-loader',
+            // @todo
+            // 'postcss-loader',
+            'sass-loader',
+          ],
+        },
       ],
       // noParse: /video.js/
+    },
+    resolve: {
+      alias: {
+        '~root': __dirname,
+      },
     },
     externals: {
       'video.js': 'videojs',
     },
     plugins: [
       generateProgressBarPlugin(name),
-      extractSass,
-      generateWriteFilePlugin(),
+      new MiniCssExtractPlugin({
+        filename: devMode
+          ? '[name].css'
+          : '[name].[hash].css',
+        chunkFilename: devMode
+          ? '[id].css'
+          : '[id].[hash].css',
+      }),
+      new WriteFilePlugin(),
     ],
   };
 }
 
-function generateAdvancedWithVideoJsDemoConfig () {
-  const name = 'advancedWithVideoJs';
-  const srcPath = path.resolve(
+const advancedDemoConfig = generateConfig(
+  'demo-advanced',
+  path.resolve(
     __dirname,
     'demo',
-    'advancedWithVideoJs'
-  );
+    'advanced',
+    'index.js'
+  )
+);
 
-  const extractSass = generateExtractSassPlugin();
-
-  return {
-    name,
-    entry: {
-      // @see - https://github.com/webpack-contrib/webpack-serve/issues/27
-      [name]: [
-        path.resolve(srcPath, 'main.js'),
-      ],
-    },
-    output: {
-      filename: '[name].js',
-      path: DESTINATION_PATH,
-    },
-    module: {
-      rules: [
-        generateJsRule(srcPath),
-        ...generateStyleRules(extractSass),
-      ],
-    },
-    resolve: {
-      alias: {
-        '~root': __dirname,
-        'video.js$': path.resolve(
-          __dirname,
-          'node_modules',
-          'video.js'
-        ),
-      },
-    },
-    plugins: [
-      generateProgressBarPlugin(name),
-      extractSass,
-      generateWriteFilePlugin(),
-    ],
-  };
-}
-
-function generateAdvancedStandaloneDemoConfig () {
-  const name = 'advancedStandalone';
-  const srcPath = path.resolve(
-    __dirname,
-    'demo',
-    'advancedStandalone'
-  );
-
-  const extractSass = generateExtractSassPlugin();
-
-  return {
-    name,
-    entry: {
-      // @see - https://github.com/webpack-contrib/webpack-serve/issues/27
-      [name]: [
-        path.resolve(srcPath, 'main.js'),
-      ],
-    },
-    output: {
-      filename: '[name].js',
-      path: DESTINATION_PATH,
-    },
-    module: {
-      rules: [
-        generateJsRule(srcPath),
-        ...generateStyleRules(extractSass),
-      ],
-    },
-    resolve: {
-      alias: {
-        '~root': __dirname,
-      },
-    },
-    plugins: [
-      generateProgressBarPlugin(name),
-      extractSass,
-      generateWriteFilePlugin(),
-    ],
-  };
-}
+delete advancedDemoConfig.externals['video.js'];
 
 module.exports = function () {
   return [
-    generateClspConfig(),
-    generateAdvancedWithVideoJsDemoConfig(),
-    generateAdvancedStandaloneDemoConfig(),
+    generateConfig(
+      utils.name,
+      path.resolve(
+        __dirname,
+        'src',
+        'js',
+        'index.js'
+      )
+    ),
+    advancedDemoConfig,
   ];
 };
