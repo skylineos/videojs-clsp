@@ -1,18 +1,22 @@
 {
-  "name": "videojs-mse-over-clsp",
-  "title": "CLSP Plugin",
-  "version": "0.17.0-1",
-  "description": "Uses clsp (iot) as a video distribution system, video is is received via the clsp client then rendered using the media source extensions. ",
-  "main": "dist/videojs-mse-over-clsp.js",
+  "name": "videojs-clsp",
+  "title": "Skyline CLSP VideoJS Plugin",
+  "version": "0.0.0",
+  "description": "Video JS plugin for Skyline Technology Solutions' CLSP Player - https://github.com/skylineos/clsp-player",
+  "main": "dist/videojs-clsp.js",
   "keywords": [
+    "html5",
+    "clsp",
+    "video",
+    "player",
     "videojs",
-    "videojs-plugin"
+    "videojs-plugin",
+    "skyline"
   ],
   "license": "MIT",
   "scripts": {
     "build": "./scripts/build.sh",
     "serve": "./scripts/serve.sh",
-    "serve:vagrant": "WATCH_WITH_POLLING=true yarn run serve",
     "lint": "./scripts/lint.sh",
     "lint-fix": "./scripts/lint.sh --fix",
     "preversion": "./scripts/version.sh --pre",
