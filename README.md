@@ -1,4 +1,4 @@
-# videojs-mse-over-clsp <!-- omit in toc -->
+# Skyline CLSP VideoJS Plugin <!-- omit in toc -->
 
 A videojs plugin that adds support for video served over the `clsp` protocol.
 Currently, this protocol is available only via Skyline's SFS solutions.
@@ -77,7 +77,7 @@ Add the following entry to your `package.json` `dependencies` object:
 ```javascript
 "dependencies": {
   // ...
-  "videojs-mse-over-clsp": "git+https://github.com/skylineos/videojs-clsp.git#v0.15.0",
+  "videojs-clsp": "git+https://github.com/skylineos/videojs-clsp.git#v0.15.0",
 }
 ```
 
@@ -112,12 +112,12 @@ In the `<head>` of your page, include a line for the videojs and the clsp plugin
   <!-- CLSP styles -->
   <link
     rel="stylesheet"
-    href="../dist/videojs-mse-over-clsp.css"
+    href="../dist/videojs-clsp.css"
   >
   <!-- Babel Polyfill -->
   <script
     type="text/javascript"
-    src="//cdn.jsdelivr.net/npm/@babel/polyfill@7.7.0/dist/polyfill.min.js"
+    src="//cdn.jsdelivr.net/npm/@babel/polyfill@7.8.7/dist/polyfill.min.js"
   ></script>
 <head>
 ```
@@ -169,7 +169,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 <!-- VideoJS -->
 <script src="//vjs.zencdn.net/7.6.6/video.min.js"></script>
 <!-- CLSP Plugin -->
-<script src="../dist/videojs-mse-over-clsp.min.js"></script>
+<script src="../dist/videojs-clsp.min.js"></script>
 
 <script>
   // construct the player
@@ -190,7 +190,7 @@ Chrome 52+ or Firefox are the browsers that this plugin currently supports.  All
 
 ## Dependencies
 
-`@babel/polyfill` `7.7.0` is required.
+`@babel/polyfill` `7.8.7` is required.
 
 `video.js` `7.6.6` is the recommended version.  Version `6.x` is not recommended due to it being less performant over time.
 

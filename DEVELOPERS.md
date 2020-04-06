@@ -33,7 +33,7 @@ window.videojs = videojs;
 // The actual plugin function is exported by this module, but it is also
 // attached to the `Player.prototype`; so, there is no need to assign it
 // to a variable.
-require('videojs-mse-over-clsp');
+require('videojs-clsp');
 
 const player = videojs('my-video');
 
@@ -49,6 +49,7 @@ if (window.clspUtils.supported()) {
 Node 10.15.x is required to run the necessary build and development scripts.
 
 One option for installing node in a development environment is to use the node version manager ["n"](https://github.com/tj/n).  If you're using Windows, you can get an installer from [Node's website](https://nodejs.org/en/download/).
+
 
 ## Build
 
@@ -78,8 +79,9 @@ The generated files will be available in the `dist` directory.
 * [https://yarnpkg.com/lang/en/docs/cli/version/](https://yarnpkg.com/lang/en/docs/cli/version/)
 * [https://semver.org/](https://semver.org/)
 
-
-* `yarn version --new-version 1.2.3+4`
+```
+yarn version --new-version 1.2.3+4
+```
 
 
 ## References
@@ -87,22 +89,3 @@ The generated files will be available in the `dist` directory.
 1. [https://github.com/videojs/generator-videojs-plugin](https://github.com/videojs/generator-videojs-plugin)
 1. [https://github.com/videojs/Video.js/blob/master/docs/guides/plugins.md](https://github.com/videojs/Video.js/blob/master/docs/guides/plugins.md)
 1. [https://github.com/videojs/generator-videojs-plugin/blob/master/docs/conventions.md](https://github.com/videojs/generator-videojs-plugin/blob/master/docs/conventions.md)
-
-
-## @todos
-
-* get rid of vagrant, use docker for development environment
-* every time a stream plays via videojs, a generic error is shown in the console: Uncaught (in promise) DOMException - it seems that claris player can supress this error message
-* when stopped, if the tab is switched, the stream resumes playing - it should remain stopped
-* make the advanced demo logic shared between the two advanced demos
-* implement linter
-* create dispose methods for all classes
-* make iov initialize execute once, and by default
-* minify css
-* hot reload?
-* hash in filenames via webpack?
-* when switching tabs, if a videojs player hasn't played the clsp stream yet, we get the following error: `Uncaught (in promise) TypeError: Cannot read property 'trigger' of undefined`
-* decouple the MSE abstraction by creating separate mediasource and sourcebuffer abstractions
-* improve metrics
-* improve memory management
-* improve error handling
