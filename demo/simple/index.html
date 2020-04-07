@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Simple CLSP with VideoJs Plugin Demo</title>
+    <title>CLSP VideoJS Plugin Simple Demo</title>
     <link
       rel="shortcut icon"
       href="../favicon.ico"
@@ -35,29 +35,48 @@
     ></script>
   </head>
   <body>
-    <h1>Simple CLSP with VideoJs Plugin Demo</h1>
-    <h3 id="version">v</h3>
-    <div class="video-container">
-      <video
-        id="my-video"
-        class="video-js vjs-default-skin"
-        muted
-      >
-        <source
-          src="clsp://172.28.12.57/FairfaxVideo0520"
-          type="video/mp4; codecs='avc1.42E01E'"
-        />
-        <source
-          src="http://8.15.251.53:1935/rtplive/FairfaxVideo0510/playlist.m3u8"
-          type="application/x-mpegURL"
-        />
-      </video>
+    <div class="header">
+      <img src="../skyline_logo.png" />
+      <h1>CLSP VideoJS Plugin Simple Demo</h1>
+      <div class="versions">
+        <div class="version">
+          <span class="product">videojs-clsp</span>
+          <span id="videojs-clsp-version">v</span>
+        </div>
+        <div class="version">
+          <span class="product">videojs</span>
+          <span id="videojs-version">v</span>
+        </div>
+        <div class="version">
+          <span class="product">videojs-errors</span>
+          <span id="videojs-errors-version">v</span>
+        </div>
+      </div>
     </div>
-    <div class="controls">
-      <button onclick="onPlay()" title="play"><i class="fas fa-play"></i></button>
-      <button onclick="onStop()" title="stop"><i class="fas fa-stop"></i></button>
-      <button onclick="onFullscreen()" title="fullscreen"><i class="fas fa-expand"></i></button>
-      <button onclick="onDestroy()" title="destroy"><i class="fas fa-bomb"></i></button>
+
+    <div class="content">
+      <div class="video-container">
+        <video
+          id="my-video"
+          class="video-js vjs-default-skin"
+          muted
+        >
+          <source
+            src="clsp://172.28.12.57/FairfaxVideo0520"
+            type="video/mp4; codecs='avc1.42E01E'"
+          />
+          <source
+            src="http://8.15.251.53:1935/rtplive/FairfaxVideo0510/playlist.m3u8"
+            type="application/x-mpegURL"
+          />
+        </video>
+      </div>
+      <div class="controls">
+        <button onclick="onPlay()" title="play"><i class="fas fa-play"></i></button>
+        <button onclick="onStop()" title="stop"><i class="fas fa-stop"></i></button>
+        <button onclick="onFullscreen()" title="fullscreen"><i class="fas fa-expand"></i></button>
+        <button onclick="onDestroy()" title="destroy"><i class="fas fa-bomb"></i></button>
+      </div>
     </div>
 
     <script
@@ -70,6 +89,10 @@
     ></script>
 
     <script type="text/javascript">
+      document.getElementById('videojs-clsp-version').innerHTML += window.clspUtils.version;
+      document.getElementById('videojs-version').innerHTML += window.videojs.VERSION;
+      document.getElementById('videojs-errors-version').innerHTML += window.videojsErrors.VERSION;
+
       main();
     </script>
   </body>

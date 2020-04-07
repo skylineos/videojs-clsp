@@ -104,7 +104,7 @@ In the `<head>` of your page, include a line for the videojs and the clsp plugin
 
 ```html
 <head>
-  <!-- VideoJS CLSP Plugin Styles -->
+  <!-- CLSP VideoJS Plugin Styles -->
   <link
     rel="stylesheet"
     href="/path/to/dist/videojs-clsp.css"

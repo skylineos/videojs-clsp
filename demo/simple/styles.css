@@ -18,25 +18,53 @@ body {
   justify-content: center;
 }
 
-h1 {
+.header {
+  display: flex;
   color: white;
-  margin: 0 auto;
+  justify-content: space-around;
+  padding: 1rem 5%;
+  font-size: 1.5rem;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
-h3 {
-  color: white;
-  margin: 0 auto;
+.header>* {
+  margin: auto;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.versions {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.versions .version {
+  display: flex;
+}
+
+.versions .version .product {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding-right: 0.5em;
+  text-align: left;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .video-container {
   display: flex;
-  margin: 0 auto;
-  margin-top: 2rem;
   padding: 0.5rem;
   border: solid 2px white;
   border-radius: 1rem;
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
 }
 
 .video-js {

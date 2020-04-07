@@ -22,7 +22,7 @@ body {
   display: flex;
   color: white;
   justify-content: space-around;
-  padding: 1rem 25%;
+  padding: 1rem 5%;
   font-size: 1.5rem;
   flex-grow: 0;
   flex-shrink: 0;
@@ -32,6 +32,23 @@ body {
   margin: auto;
   padding: 0.5rem;
   text-align: center;
+}
+
+.versions {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.versions .version {
+  display: flex;
+}
+
+.versions .version .product {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding-right: 0.5em;
+  text-align: left;
 }
 
 .buttons-container {

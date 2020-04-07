@@ -11,25 +11,63 @@
       rel="stylesheet"
       href="./styles.css"
     >
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/@babel/polyfill@7.8.7/dist/polyfill.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//vjs.zencdn.net/7.7.5/video.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/videojs-errors@4.3.2/dist/videojs-errors.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../../dist/videojs-clsp.min.js"
+    ></script>
   </head>
   <body>
     <div class="header">
       <img src="./skyline_logo.png" />
-      <h1>CLSP Demos</h1>
+      <h1>CLSP VideoJS Plugin Demos</h1>
+      <div class="versions">
+        <div class="version">
+          <span class="product">videojs-clsp</span>
+          <span id="videojs-clsp-version">v</span>
+        </div>
+        <div class="version">
+          <span class="product">videojs</span>
+          <span id="videojs-version">v</span>
+        </div>
+        <div class="version">
+          <span class="product">videojs-errors</span>
+          <span id="videojs-errors-version">v</span>
+        </div>
+      </div>
     </div>
     <div class="buttons-container">
       <div class="buttons">
         <button
-          onclick="location.href = 'advanced/';"
-        >Advanced Demo</button>
+          onclick="location.href = 'advanced-dist/';"
+        >Advanced Demo<br />~ DIST ~</button>
+        <button
+          onclick="location.href = 'advanced-src/';"
+        >Advanced Demo<br />~ SRC ~</button>
         <button
           onclick="location.href = 'simple/';"
         >Simple Demo</button>
         <button
           onclick="location.href = 'tours/';"
           disabled
-        >CLSP with VideoJs Tour Demo</button>
+        >Tour Demo</button>
       </div>
     </div>
+    <script type="text/javascript">
+      document.getElementById('videojs-clsp-version').innerHTML += window.clspUtils.version;
+      document.getElementById('videojs-version').innerHTML += window.videojs.VERSION;
+      document.getElementById('videojs-errors-version').innerHTML += window.videojsErrors.VERSION;
+    </script>
   </body>
 </html>

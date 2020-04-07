@@ -36,8 +36,6 @@ function onDestroy () {
 }
 
 function main () {
-  document.getElementById('version').innerHTML += window.clspUtils.version;
-
   window.player = window.videojs('my-video');
 
   if (window.clspUtils.supported()) {
