@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./scripts/utils.sh
+source "./scripts/utils.sh"
 
 PREVERSION=$FALSE
 POSTVERSION=$FALSE
