@@ -162,9 +162,9 @@ This is the simplest case. Get the script in whatever way you prefer and include
 
 ```html
 <!-- VideoJS -->
-<script src="//vjs.zencdn.net/7.6.6/video.min.js"></script>
+<script src="//vjs.zencdn.net/7.7.5/video.min.js"></script>
 <!-- CLSP Plugin -->
-<script src="../dist/videojs-clsp.min.js"></script>
+<script src="/path/to/dist/videojs-clsp.min.js"></script>
 
 <script>
   // construct the player
@@ -187,9 +187,9 @@ Chrome 53+ or Firefox are the browsers that this plugin currently supports.  All
 
 `@babel/polyfill` `7.8.7` is required.
 
-`video.js` `7.6.6` is the recommended version.  Version `6.x` is not recommended due to it being less performant over time.
+`video.js` `7.7.5` is the recommended version.  Version `6.x` is not recommended due to it being less performant over time.
 
-If using `videojs-errors`, which is recommended, `4.2.0` is the recommended version, as it allows us to re-register successive errors to respond to successfive failures as necessary to support stream recovery.
+We recommend using `videojs-errors`.  Version `4.3.2` is recommended, because as of version `4.2.0`, it allows us to re-register successive errors to respond to successfive failures as necessary to support stream recovery.
 
 
 ## References
