@@ -1,7 +1,5 @@
-'use strict';
-
-// This is configured as an external library by webpack, so the caller must
-// provide videojs on `window`
+// NOTE: This is configured as an external library by webpack, so the caller
+// must provide videojs on `window`
 import videojs from 'video.js';
 import { v4 as uuidv4 } from 'uuid';
 import IovCollection from '@skylineos/clsp-player/src/js/iov/IovCollection';
@@ -10,7 +8,7 @@ import utils from './utils';
 
 const Component = videojs.getComponent('Component');
 
-const DEFAULT_CHANGE_SOURCE_MAX_WAIT = 5000;
+const DEFAULT_CHANGE_SOURCE_MAX_WAIT = 5;
 
 export default class ClspHandler extends Component {
   constructor (
@@ -29,7 +27,7 @@ export default class ClspHandler extends Component {
 
     // @todo - is there a better way to do this where we don't pollute the
     // top level namespace?
-    this.changeSourceMaxWait = options.changeSourceMaxWait || DEFAULT_CHANGE_SOURCE_MAX_WAIT;
+    this.changeSourceMaxWait = (options.changeSourceMaxWait || DEFAULT_CHANGE_SOURCE_MAX_WAIT) * 1000;
     this.iov = null;
     this.player = null;
   }

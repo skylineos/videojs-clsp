@@ -1,5 +1,3 @@
-'use strict';
-
 // This is configured as an external library by webpack, so the caller must
 // provide videojs on `window`
 import videojs from 'video.js';

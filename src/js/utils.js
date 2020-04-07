@@ -1,7 +1,9 @@
 'use strict';
 
-// This file needs to use `require` rather than `import` to be able to be used
-// by webpack.
+/**
+ * This file needs to use `require` rather than `import` to be able to be used
+ * by webpack.
+ */
 
 const clspPlayerUtils = require('@skylineos/clsp-player/src/js/utils/utils');
 const Logger = require('@skylineos/clsp-player/src/js/utils/logger');

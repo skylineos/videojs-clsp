@@ -1,5 +1,3 @@
-'use strict';
-
 // This is configured as an external library by webpack, so the caller must
 // provide videojs on `window`
 import videojs from 'video.js';
@@ -259,7 +257,7 @@ export default (defaultOptions = {}) => class ClspPlugin extends Plugin {
         PLAYER_ERR_NOT_COMPAT: {
           type: 'PLAYER_ERR_NOT_COMPAT',
           headline: 'This browser is unsupported.',
-          message: 'Chrome 52+ is required.',
+          message: `Chrome ${utils.MINIMUM_CHROME_VERSION} or greater is required.`,
         },
       },
       ...this.options.videojsErrorsOptions,
