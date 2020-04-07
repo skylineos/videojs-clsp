@@ -11,13 +11,9 @@ const proConfig = (webpackConfig) => {
     ...webpackConfig,
     mode: 'production',
     cache: true,
-    devtool: 'cheap-source-map',
+    // @todo - minimization breaks the plugin or player!
     optimization: {
-      minimizer: [
-        new TerserPlugin({
-          exclude: /\.min\.js$/i,
-        }),
-      ],
+      minimize: false,
     },
     plugins: [
       ...webpackConfig.plugins,
@@ -47,5 +43,10 @@ const proConfig = (webpackConfig) => {
 };
 
 module.exports = function () {
-  return webpackConfigs().map((webpackConfig) => proConfig(webpackConfig)).reverse();
+  const configs = webpackConfigs().map((webpackConfig) => proConfig(webpackConfig));
+
+  // We ONLY want the plugin to be built in prod mode
+  return [
+    configs.pop(),
+  ];
 };

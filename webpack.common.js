@@ -135,20 +135,34 @@ function generateConfig (name, entry) {
   };
 }
 
-const advancedDemoConfig = generateConfig(
-  'demo-advanced',
+const srcAdvancedDemoConfig = generateConfig(
+  'demo-advanced-src',
   path.resolve(
     __dirname,
     'demo',
-    'advanced',
+    'advanced-src',
     'index.js'
   )
 );
 
-delete advancedDemoConfig.externals['video.js'];
+delete srcAdvancedDemoConfig.externals['video.js'];
+
+const distAdvancedDemoConfig = generateConfig(
+  'demo-advanced-dist',
+  path.resolve(
+    __dirname,
+    'demo',
+    'advanced-dist',
+    'index.js'
+  )
+);
+
+delete distAdvancedDemoConfig.externals['video.js'];
 
 module.exports = function () {
   return [
+    srcAdvancedDemoConfig,
+    distAdvancedDemoConfig,
     generateConfig(
       utils.name,
       path.resolve(
@@ -158,6 +172,5 @@ module.exports = function () {
         'index.js'
       )
     ),
-    advancedDemoConfig,
   ];
 };

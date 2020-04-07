@@ -24,5 +24,10 @@ function devConfig (webpackConfig) {
 }
 
 module.exports = function () {
-  return webpackConfigs().map((webpackConfig) => devConfig(webpackConfig)).reverse();
+  const configs = webpackConfigs().map((webpackConfig) => devConfig(webpackConfig));
+
+  // We ONLY want the demo pages to be built in dev mode
+  configs.pop();
+
+  return configs;
 };
