@@ -2,24 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Advanced CLSP with VideoJs Plugin Demo</title>
+    <title>CLSP VideoJS Plugin Advanced Demo ~ DIST ~</title>
     <link
       rel="shortcut icon"
       href="../favicon.ico"
     >
     <link
-      href="../../dist/demo-advanced.css"
       rel="stylesheet"
+      href="../../dist/videojs-clsp.css"
+    >
+    <link
+    rel="stylesheet"
+      href="../../dist/demo-advanced-dist.css"
     >
     <script
       type="text/javascript"
-      src="../../dist/demo-advanced.js"
+      src="//cdn.jsdelivr.net/npm/@babel/polyfill@7.8.7/dist/polyfill.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//vjs.zencdn.net/7.7.5/video.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/videojs-errors@4.3.2/dist/videojs-errors.min.js"
     ></script>
   </head>
   <body>
     <div class="page-header">
       <img src="../skyline_logo.png" />
-      <h1>Advanced CLSP with VideoJs Plugin Demo</h1>
+      <h1>CLSP VideoJS Plugin Advanced Demo <br /> ~ DIST ~</h1>
       <h1 id="page-title-version">--version not yet loaded--</h1>
       <div class="dependency-versions">
         <span>video.js:</span>
@@ -32,7 +44,10 @@
     <div class="page-body">
       <section class="wall">
         <div class="monitor">
-          <button id="wall-controls-toggle" data-state="shown">Hide Controls</button>
+          <button
+            id="wall-controls-toggle"
+            data-state="shown"
+          >Hide Controls</button>
           <div id="wallSummary" class="summary">
             <span>Total videos playing:</span>
             <h2 id="wallTotalVideos">N/A</h2>
@@ -169,5 +184,14 @@
         <div class="wall-video-metrics video-metrics"></div>
       </div>
     </template>
+
+    <script
+      type="text/javascript"
+      src="../../dist/videojs-clsp.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../../dist/demo-advanced-dist.js"
+    ></script>
   </body>
 </html>

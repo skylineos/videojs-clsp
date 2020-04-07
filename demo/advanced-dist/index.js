@@ -2,26 +2,11 @@
 
 import './styles.scss';
 
-import '@babel/polyfill';
-
 import $ from 'jquery';
 import {
-  version as videojsErrorsVersion,
-} from 'videojs-errors/package.json';
-import {
-  onLoad,
   initializeWall,
   initLocalStorage,
-} from '@skylineos/clsp-player/demo/advanced/shared';
-import videojs from 'video.js';
-import 'videojs-errors';
-
-import utils from '~root/src/js/utils';
-import '~root/src/js/index';
-
-window.videojs = videojs;
-
-window.CLSP_DEMO_VERSION = utils.version;
+} from '../advanced-src/shared';
 
 let wallPlayers = [];
 
@@ -117,19 +102,25 @@ function createPlayer (index, playerOptions) {
 }
 
 $(() => {
-  const name = 'clspWithVideoJs';
+  const name = 'videojs-clsp-advanced-demo-dist';
 
-  onLoad();
-
+  $('#page-title-version').html(window.clspUtils.version);
   $('#page-title-videojs-version').html(window.videojs.VERSION);
-  $('#page-title-videojs-error-version').html(videojsErrorsVersion);
+  $('#page-title-videojs-error-version').html(window.videojsErrors.VERSION);
 
   window.HELP_IMPROVE_VIDEOJS = false;
 
   // Tours for videojs are not yet implemented
   initLocalStorage(
-    name, 'tours-enabled', 'checkbox', false,
+    name,
+    'tours-enabled',
+    'checkbox',
+    false,
   );
 
-  initializeWall(name, createPlayer, destroyAllPlayers);
+  initializeWall(
+    name,
+    createPlayer,
+    destroyAllPlayers,
+  );
 });

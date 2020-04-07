@@ -1,9 +1,12 @@
 $icon-font-path: '~videojs-font/fonts';
 
-@import '../../node_modules/video.js/src/css/video-js.scss';
 @import '../../node_modules/@skylineos/clsp-player/demo/advanced/styles.scss';
 
-@import '../../src/styles/videojs-clsp.scss';
+.page-header {
+  h1 {
+    text-align: center;
+  }
+}
 
 .dependency-versions {
   display: grid;
