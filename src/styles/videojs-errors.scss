@@ -1,0 +1,14 @@
+@import '../../node_modules/videojs-errors/src/plugin.scss';
+
+.vjs-xs.vjs-error-display .vjs-errors-details,
+.vjs-xs.vjs-error-display .vjs-errors-message {
+  display: block;
+}
+
+@media (max-width: 600px),
+(max-height: 250px) {
+  .vjs-error-display .vjs-errors-details,
+  .vjs-error-display .vjs-errors-message {
+    display: block;
+  }
+}

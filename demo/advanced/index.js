@@ -5,8 +5,6 @@ import './styles.scss';
 import '@babel/polyfill';
 
 import $ from 'jquery';
-import videojs from 'video.js';
-import 'videojs-errors';
 import {
   version as videojsErrorsVersion,
 } from 'videojs-errors/package.json';
@@ -15,6 +13,8 @@ import {
   initializeWall,
   initLocalStorage,
 } from '@skylineos/clsp-player/demo/advanced/shared';
+import videojs from 'video.js';
+import 'videojs-errors';
 
 import utils from '~root/src/js/utils';
 import '~root/src/js/index';
