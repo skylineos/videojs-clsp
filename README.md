@@ -20,7 +20,7 @@ Note - this highest h.264 keyframe/iframe segment frequency this plugin currentl
   - [`<script>` Tag](#script-tag)
 - [Supported Browsers](#supported-browsers)
 - [Dependencies](#dependencies)
-- [License](#license)
+- [References](#references)
 
 ## URL Structure
 
@@ -104,15 +104,10 @@ In the `<head>` of your page, include a line for the videojs and the clsp plugin
 
 ```html
 <head>
-  <!-- VideoJS styles -->
+  <!-- VideoJS CLSP Plugin Styles -->
   <link
     rel="stylesheet"
-    href="//vjs.zencdn.net/7.6.6/video-js.min.css"
-  >
-  <!-- CLSP styles -->
-  <link
-    rel="stylesheet"
-    href="../dist/videojs-clsp.css"
+    href="/path/to/dist/videojs-clsp.css"
   >
   <!-- Babel Polyfill -->
   <script
@@ -185,7 +180,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 
 ## Supported Browsers
 
-Chrome 52+ or Firefox are the browsers that this plugin currently supports.  All other browsers are currently not supported.
+Chrome 53+ or Firefox are the browsers that this plugin currently supports.  All other browsers are currently not supported.
 
 
 ## Dependencies
@@ -197,6 +192,8 @@ Chrome 52+ or Firefox are the browsers that this plugin currently supports.  All
 If using `videojs-errors`, which is recommended, `4.2.0` is the recommended version, as it allows us to re-register successive errors to respond to successfive failures as necessary to support stream recovery.
 
 
-## License
+## References
 
-See the LICENSE file at the root of this repository.
+* [https://videojs.com/](https://videojs.com/)
+* [https://docs.videojs.com/](https://docs.videojs.com/)
+* [https://videojs.com/plugins/](https://videojs.com/plugins/)
