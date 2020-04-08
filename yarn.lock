@@ -876,14 +876,16 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@skylineos/clsp-player@0.18.0":
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/@skylineos/clsp-player/-/clsp-player-0.18.0.tgz#af65f12a4a56703dd62a1348d9527773c9c7d90b"
-  integrity sha512-Te18x4UFT+NaeObJt/VjvgmejVNBazVGUL+y3jNHew03/Tf6lq1oqTO4SDzwGclJLzaT1oHB110YIXyZRWEgcg==
+"@skylineos/clsp-player@0.19.0-1":
+  version "0.19.0-1"
+  resolved "https://registry.yarnpkg.com/@skylineos/clsp-player/-/clsp-player-0.19.0-1.tgz#4cdbd8d6ef8554271a03ebe8b394d36b868cbf0e"
+  integrity sha512-iwML9QJLrfU5XQAy3KWpnY4LaWIk5zgY4/+5ny1I9bn3A/FDYfvT/KUVVpuSLxiIftThU3QlC0LD/URxqbR+Rw==
   dependencies:
     debug "4.1.1"
     lodash "4.17.15"
     paho-mqtt "1.1.0"
+    srcdoc-polyfill "1.0.0"
+    uuid "7.0.3"
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -6532,6 +6534,11 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
+
+srcdoc-polyfill@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/srcdoc-polyfill/-/srcdoc-polyfill-1.0.0.tgz#81b6d79131f33231ea0f205c9236be90e9aca718"
+  integrity sha1-gbbXkTHzMjHqDyBckja+kOmspxg=
 
 sshpk@^1.7.0:
   version "1.16.1"

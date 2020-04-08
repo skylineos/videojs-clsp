@@ -1,5 +1,5 @@
 {
-  "name": "videojs-clsp",
+  "name": "@skylineos/videojs-clsp",
   "title": "Skyline CLSP VideoJS Plugin",
   "version": "0.0.0",
   "description": "Video JS plugin for Skyline Technology Solutions' CLSP Player - https://github.com/skylineos/clsp-player",
@@ -20,12 +20,14 @@
     "serve": "./scripts/serve/serve.sh",
     "lint": "./scripts/lint.sh",
     "lint-fix": "./scripts/lint.sh --fix",
+    "prepack": "yarn run build",
+    "postpack": "./scripts/build/pre-build.sh",
     "preversion": "./scripts/version.sh --pre",
     "version": "./scripts/version.sh",
     "postversion": "./scripts/version.sh --post"
   },
   "dependencies": {
-    "@skylineos/clsp-player": "0.18.0",
+    "@skylineos/clsp-player": "0.19.0-1",
     "uuid": "7.0.3"
   },
   "devDependencies": {
