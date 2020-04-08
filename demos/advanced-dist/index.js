@@ -1,5 +1,3 @@
-'use strict';
-
 import './styles.scss';
 
 import $ from 'jquery';

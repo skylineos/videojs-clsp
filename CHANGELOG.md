@@ -33,6 +33,7 @@
 
 * Update minimum supported Chrome version to 53
 * move `demo` to `demos`
+* change demo serve default port to `8081`
 * publish to NPM registry!
 * dist files are no longer part of source control
 * dist files get generated during publish
