@@ -3,22 +3,18 @@
 import './styles.scss';
 
 import '@babel/polyfill';
+import videojs from 'video.js';
+import videojsErrors from 'videojs-errors/dist/videojs-errors.es';
 
 import $ from 'jquery';
-import {
-  version as videojsErrorsVersion,
-} from 'videojs-errors/package.json';
+
 import {
   initializeWall,
   initLocalStorage,
 } from './shared';
-import videojs from 'video.js';
-import 'videojs-errors';
 
 import utils from '~root/src/js/utils';
-import '~root/src/js/index';
-
-window.videojs = videojs;
+import plugin from '~root/src/js/plugin';
 
 let wallPlayers = [];
 
@@ -90,7 +86,7 @@ function createPlayer (index, playerOptions) {
     }
   }
 
-  const player = window.videojs(videoId, playerOptions);
+  const player = videojs(videoId, playerOptions);
 
   player.on('dispose', () => {
     for (let i = 0; i < wallPlayers.length; i++) {
@@ -114,20 +110,31 @@ function createPlayer (index, playerOptions) {
 }
 
 $(() => {
-  const name = 'videojs-clsp-advanced-demo-src';
+  const localStorageName = 'videojs-clsp-advanced-demo-src';
 
-  document.title = `CLSP VideoJS Plugin ${utils.version} Demo Page`;
+  document.title = `v${utils.version} ${document.title}`;
 
-  $('#page-title-version').html(utils.version);
-  $('#page-title-videojs-version').html(videojs.VERSION);
-  $('#page-title-videojs-error-version').html(videojsErrorsVersion);
+  const pageTitle = $('#page-title').html();
+  $('#page-title').html(`${pageTitle} <br /> v${utils.version}`);
+
+  $('#videojs-version').html(videojs.VERSION);
+  $('#videojs-errors-version').html(videojsErrors.VERSION);
 
   window.HELP_IMPROVE_VIDEOJS = false;
 
   // Tours for videojs are not yet implemented
   initLocalStorage(
-    name, 'tours-enabled', 'checkbox', false,
+    localStorageName,
+    'tours-enabled',
+    'checkbox',
+    false,
   );
 
-  initializeWall(name, createPlayer, destroyAllPlayers);
+  initializeWall(
+    localStorageName,
+    createPlayer,
+    destroyAllPlayers,
+  );
+
+  plugin().register();
 });

@@ -1,0 +1,26 @@
+$icon-font-path: '~videojs-font/fonts';
+
+@import '../../node_modules/@skylineos/clsp-player/demo/advanced/styles.scss';
+
+.header {
+  .versions {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    .version {
+      display: flex;
+
+      .product {
+        flex-grow: 1;
+        flex-shrink: 0;
+        padding-right: 0.5em;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.tours-stream-config {
+  display: none !important;
+}

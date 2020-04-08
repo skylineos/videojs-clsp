@@ -1,15 +1,2 @@
-$icon-font-path: '~videojs-font/fonts';
-
-@import '../../node_modules/video.js/src/css/video-js.scss';
-@import '../../node_modules/@skylineos/clsp-player/demo/advanced/styles.scss';
-
+@import './shared.scss';
 @import '../../src/styles/videojs-clsp.scss';
-
-.dependency-versions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.tours-stream-config {
-  display: none !important;
-}
