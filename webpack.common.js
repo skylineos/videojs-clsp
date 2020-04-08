@@ -22,6 +22,15 @@ function generateProgressBarPlugin (name) {
   });
 }
 
+const outputPath = path.resolve(
+  __dirname,
+  'dist',
+);
+const demoOutputPath = path.resolve(
+  outputPath,
+  'demos',
+)
+
 function generateConfig (name, entry) {
   return {
     name,
@@ -32,10 +41,7 @@ function generateConfig (name, entry) {
       ],
     },
     output: {
-      path: path.resolve(
-        __dirname,
-        'dist'
-      ),
+      path: outputPath,
       filename: '[name].js',
     },
     module: {
@@ -68,7 +74,7 @@ function generateConfig (name, entry) {
             ),
             path.resolve(
               __dirname,
-              'demo'
+              'demos'
             ),
             // @see - https://github.com/visionmedia/debug/issues/668
             path.resolve(
@@ -117,9 +123,6 @@ function generateConfig (name, entry) {
         '~root': __dirname,
       },
     },
-    externals: {
-      'video.js': 'videojs',
-    },
     plugins: [
       generateProgressBarPlugin(name),
       new MiniCssExtractPlugin({
@@ -135,42 +138,61 @@ function generateConfig (name, entry) {
   };
 }
 
-const srcAdvancedDemoConfig = generateConfig(
-  'demo-advanced-src',
+const advancedDemoDistConfig = generateConfig(
+  'advanced-dist',
   path.resolve(
     __dirname,
-    'demo',
-    'advanced-src',
-    'index.js'
-  )
-);
-
-delete srcAdvancedDemoConfig.externals['video.js'];
-
-const distAdvancedDemoConfig = generateConfig(
-  'demo-advanced-dist',
-  path.resolve(
-    __dirname,
-    'demo',
+    'demos',
     'advanced-dist',
     'index.js'
   )
 );
 
-delete distAdvancedDemoConfig.externals['video.js'];
+advancedDemoDistConfig.output.path = demoOutputPath;
+
+const advancedDemoSrcConfig = generateConfig(
+  'advanced-src',
+  path.resolve(
+    __dirname,
+    'demos',
+    'advanced-src',
+    'index.js'
+  )
+);
+
+advancedDemoSrcConfig.output.path = demoOutputPath;
+
+const simpleDemoSrcConfig = generateConfig(
+  'simple-src',
+  path.resolve(
+    __dirname,
+    'demos',
+    'simple-src',
+    'index.js'
+  )
+);
+
+simpleDemoSrcConfig.output.path = demoOutputPath;
+
+const videojsClspPluginConfig = generateConfig(
+  utils.name,
+  path.resolve(
+    __dirname,
+    'src',
+    'js',
+    'index.js'
+  )
+);
+
+videojsClspPluginConfig.externals = {
+  'video.js': 'videojs',
+};
 
 module.exports = function () {
   return [
-    srcAdvancedDemoConfig,
-    distAdvancedDemoConfig,
-    generateConfig(
-      utils.name,
-      path.resolve(
-        __dirname,
-        'src',
-        'js',
-        'index.js'
-      )
-    ),
+    advancedDemoDistConfig,
+    advancedDemoSrcConfig,
+    simpleDemoSrcConfig,
+    videojsClspPluginConfig,
   ];
 };

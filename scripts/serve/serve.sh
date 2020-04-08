@@ -6,4 +6,3 @@ source "./scripts/utils.sh"
 
 dps "Bringing up webpack dev server..."
 "./scripts/serve/serve.js"
-# NODE_ENV=development "./scripts/serve/serve.js"
