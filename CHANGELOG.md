@@ -31,15 +31,22 @@
 
 ### v0.18.0-1 - 2020-04-06 - Critical
 
+* Update minimum supported Chrome version to 53
+* move `demo` to `demos`
 * publish to NPM registry!
 * dist files are no longer part of source control
 * dist files get generated during publish
 * remove all clsp-player assets, logic, dependencies, etc.
+* import all necessary assets from `@skylineos/clsp-player`
 * update all dependencies
 * update all demos to not explicitly say "withVideoJs"
-* advanced demo now uses src assets, not dist assets
+* create advanced and simple demos that use `dist` assets
+* create advanced and simple demos that use `src` assets
+* move demo `dist` assets to `dist/demos` folder
+* include `README` examples for both `dist` and `src` approaches
 * remove all vagrant assets
 * simplify webpack config
+* refactor build and serve scripts
 * replace extract-text-webpack-plugin with mini-css-extract-plugin
 
 ## Pre CLSP Player
