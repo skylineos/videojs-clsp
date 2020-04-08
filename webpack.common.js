@@ -29,7 +29,7 @@ const outputPath = path.resolve(
 const demoOutputPath = path.resolve(
   outputPath,
   'demos',
-)
+);
 
 function generateConfig (name, entry) {
   return {
@@ -53,11 +53,6 @@ function generateConfig (name, entry) {
             presets: [
               [
                 '@babel/preset-env',
-                {
-                  exclude: [
-                    '@babel/plugin-transform-typeof-symbol',
-                  ],
-                },
               ],
             ],
             plugins: [
@@ -70,28 +65,41 @@ function generateConfig (name, entry) {
           include: [
             path.resolve(
               __dirname,
-              'src'
+              'src',
             ),
             path.resolve(
               __dirname,
-              'demos'
+              'demos',
             ),
             // @see - https://github.com/visionmedia/debug/issues/668
             path.resolve(
               __dirname,
               'node_modules',
-              'debug'
+              'debug',
             ),
-            path.resolve(
-              __dirname,
-              'node_modules',
-              '@skylineos',
-              'clsp-player'
-            ),
-            function (filepath) {
-              return filepath.includes('clsp-player');
-            },
           ],
+        },
+        {
+          test: /.*clsp-player\/(src|demos).*\.js$/,
+          loader: 'babel-loader?cacheDirectory=true',
+          options: {
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  // Prevents "ReferenceError: _typeof is not defined" error
+                  exclude: [
+                    '@babel/plugin-transform-typeof-symbol',
+                  ],
+                },
+              ],
+            ],
+            plugins: [
+              '@babel/plugin-syntax-dynamic-import',
+              '@babel/plugin-proposal-object-rest-spread',
+              '@babel/plugin-proposal-class-properties',
+            ],
+          },
         },
         // @see - https://github.com/bensmithett/webpack-css-example/blob/master/webpack.config.js
         {
@@ -144,8 +152,8 @@ const advancedDemoDistConfig = generateConfig(
     __dirname,
     'demos',
     'advanced-dist',
-    'index.js'
-  )
+    'index.js',
+  ),
 );
 
 advancedDemoDistConfig.output.path = demoOutputPath;
@@ -156,8 +164,8 @@ const advancedDemoSrcConfig = generateConfig(
     __dirname,
     'demos',
     'advanced-src',
-    'index.js'
-  )
+    'index.js',
+  ),
 );
 
 advancedDemoSrcConfig.output.path = demoOutputPath;
@@ -168,8 +176,8 @@ const simpleDemoSrcConfig = generateConfig(
     __dirname,
     'demos',
     'simple-src',
-    'index.js'
-  )
+    'index.js',
+  ),
 );
 
 simpleDemoSrcConfig.output.path = demoOutputPath;
@@ -180,8 +188,8 @@ const videojsClspPluginConfig = generateConfig(
     __dirname,
     'src',
     'js',
-    'index.js'
-  )
+    'index.js',
+  ),
 );
 
 videojsClspPluginConfig.externals = {

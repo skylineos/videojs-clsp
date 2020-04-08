@@ -46,6 +46,8 @@
 * include `README` examples for both `dist` and `src` approaches
 * remove all vagrant assets
 * simplify webpack config
+* only generate prod dist assets for CLSP VideoJS Plugin
+* only generate dev dist assets for demos
 * refactor build and serve scripts
 * replace extract-text-webpack-plugin with mini-css-extract-plugin
 

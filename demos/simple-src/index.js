@@ -57,12 +57,7 @@ function registerHandlers () {
   };
 }
 
-$(() => {
-  displayVersions();
-  registerHandlers();
-
-  window.HELP_IMPROVE_VIDEOJS = false;
-
+async function main () {
   clspPlugin().register();
 
   const videoElementId = 'my-video';
@@ -87,4 +82,11 @@ $(() => {
   if (clspUtils.supported()) {
     window.player.clsp();
   }
+}
+
+$(() => {
+  window.HELP_IMPROVE_VIDEOJS = false;
+  displayVersions();
+  registerHandlers();
+  main();
 });

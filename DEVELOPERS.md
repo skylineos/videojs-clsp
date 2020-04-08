@@ -3,8 +3,8 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [Getting Started](#getting-started)
-  - [Prepare Node Environment](#prepare-node-environment)
-  - [Run test server](#run-test-server)
+    - [Prepare Node Environment](#prepare-node-environment)
+    - [Run test server](#run-test-server)
 - [Versioning](#versioning)
 - [Publishing](#publishing)
 - [References](#references)
@@ -25,8 +25,8 @@
 
 1. `yarn run serve`
     * set `DEV_SERVER_HOST` to change the default host of `0.0.0.0`
-    * set `DEV_SERVER_PORT` to change the port of `8080`
-1. navigate to [http://localhost:8080](http://localhost:8080) in a supported browser
+    * set `DEV_SERVER_PORT` to change the port of `8081`
+1. navigate to [http://localhost:8081](http://localhost:8081) in a supported browser
 1. add a `clsp` url to any of the inputs, then click submit
 1. click play on the video element (if not using an autoplay player)
 

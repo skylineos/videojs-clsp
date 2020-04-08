@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>CLSP VideoJS Plugin Simple Demo ~ DIST ~</title>
+    <title>CLSP VideoJS Plugin Simple Demo ~ SRC ~</title>
     <link
       rel="shortcut icon"
       href="../favicon.ico"
@@ -21,7 +21,7 @@
   <body>
     <div class="header">
       <img src="../skyline_logo.png" />
-      <h1 id="page-title">CLSP VideoJS Plugin Simple Demo <br /> ~ DIST ~</h1>
+      <h1 id="page-title">CLSP VideoJS Plugin Simple Demo <br /> ~ SRC ~</h1>
       <div class="versions">
         <div class="version">
           <span class="product">videojs</span>
@@ -35,6 +35,19 @@
     </div>
 
     <div class="content container-fit">
+      <div class="stream-container">
+        <input
+          id="stream-src"
+          name="stream-src"
+          value="clsp://172.28.12.57/FairfaxVideo0520"
+          disabled
+        />
+        <button
+          onclick="changeSrc()"
+          title="Change Stream"
+          disabled
+        >Change Stream</button>
+      </div>
       <div class="video-container container-fit">
         <video
           id="my-video"
@@ -52,10 +65,30 @@
         </video>
       </div>
       <div class="controls">
-        <button onclick="onPlay()" title="play"><i class="fas fa-play"></i></button>
-        <button onclick="onStop()" title="stop"><i class="fas fa-stop"></i></button>
-        <button onclick="onFullscreen()" title="fullscreen"><i class="fas fa-expand"></i></button>
-        <button onclick="onDestroy()" title="destroy"><i class="fas fa-bomb"></i></button>
+        <button
+          onclick="onPlay()"
+          title="play"
+        >
+          <i class="fas fa-play"></i>
+        </button>
+        <button
+          onclick="onStop()"
+          title="stop"
+        >
+          <i class="fas fa-stop"></i>
+        </button>
+        <button
+          onclick="onFullscreen()"
+          title="fullscreen"
+        >
+          <i class="fas fa-expand"></i>
+        </button>
+        <button
+          onclick="onDestroy()"
+          title="destroy"
+        >
+          <i class="fas fa-bomb"></i>
+        </button>
       </div>
     </div>
 

@@ -21,7 +21,7 @@ Note that if you do not specifically need `video.js`, we recommend you use [`cls
 - [Using with `src` assets](#using-with-src-assets)
   - [JS](#js)
   - [Styles (SASS)](#styles-sass)
-- [Supported Browsers](#supported-browsers-1)
+  - [Webpack](#webpack)
 - [Dependencies](#dependencies)
 
 
@@ -182,10 +182,9 @@ if (clspUtils.supported()) {
 @import '/path/to/node_modules/@skylineos/videojs-clsp/src/styles/videojs-clsp.scss';
 ```
 
+### Webpack
 
-## Supported Browsers
-
-Chrome 53+ or Firefox are the browsers that this plugin currently supports.  All other browsers are currently not supported.
+@todo
 
 
 ## Dependencies

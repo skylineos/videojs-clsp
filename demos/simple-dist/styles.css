@@ -61,7 +61,18 @@ body {
   text-align: left;
 }
 
-.content {
+.stream-container {
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.stream-container input {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 0.5em;
+  margin-right: 0.5em;
+  max-width: 40%;
 }
 
 .video-container {
@@ -70,21 +81,6 @@ body {
   border-radius: 1em;
   width: 50%;
   margin: auto;
-}
-
-.video-js {
-  width: 100%;
-  height: 100%;
-}
-
-.clsp-video-container {
-}
-
-.clsp-video {
-}
-
-video {
-  object-fit: fill;
 }
 
 .controls {

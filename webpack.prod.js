@@ -1,7 +1,6 @@
 'use strict';
 
 const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const webpackConfigs = require('./webpack.common');
@@ -45,7 +44,8 @@ const proConfig = (webpackConfig) => {
 module.exports = function () {
   const configs = webpackConfigs().map((webpackConfig) => proConfig(webpackConfig));
 
-  // We ONLY want the plugin to be built in prod mode
+  // We ONLY want the CLSP VideoJS Plugin to be built in prod mode
+  // Discard all the demo configs
   return [
     configs.pop(),
   ];

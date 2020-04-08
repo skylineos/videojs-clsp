@@ -26,6 +26,7 @@ function devConfig (webpackConfig) {
 module.exports = function () {
   const configs = webpackConfigs().map((webpackConfig) => devConfig(webpackConfig));
 
+  // Remove the CLSP VideoJS Plugin config
   // We ONLY want the demo pages to be built in dev mode
   configs.pop();
 

@@ -42,25 +42,8 @@ fi
 
 dpi "Executing version logic..."
 
-# dps "Linting..."
-# yarn run lint --fix
-# ec "Successfully linted!" "Failed to lint!"
-
-# # Add back the modified/linted files to staging
-# dps "Adding the fixed files..."
-# git add "${jsFilesToLint[@]}"
-# ec "Successfully added fixed files" "Failed to add fixed files!"
-
-dps "Building..."
-yarn run build
-ec "Successfully built!" "Failed to build!"
-
-dps "Adding dist files to branch..."
-git add dist/
-ec "Successfully added dist files to branch!" "Failed to add dist files to branch!"
-
-dps "Committing dist files to branch..."
-git commit -m "build $(getNodePackageVersion)"
-ec "Successfully committed dist files to branch!" "Failed to commit dist files to branch!"
+dps "Linting..."
+yarn run lint
+ec "Successfully linted!" "Failed to lint!"
 
 exit 0

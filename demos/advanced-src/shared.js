@@ -14,7 +14,7 @@ const defaultClspUrls = [
 
 // Get a demo local storage value
 export function getLocalStorage (name, elementId) {
-  const localStorageKey = `skyline.videojs-clsp.${name}.${elementId}`;
+  const localStorageKey = `skylineos.videojs-clsp.${name}.${elementId}`;
 
   return {
     key: localStorageKey,
@@ -23,7 +23,7 @@ export function getLocalStorage (name, elementId) {
 }
 
 export function setLocalStorage (name, elementId, value) {
-  const localStorageKey = `skyline.videojs-clsp.${name}.${elementId}`;
+  const localStorageKey = `skylineos.videojs-clsp.${name}.${elementId}`;
 
   window.localStorage.setItem(localStorageKey, value);
 
