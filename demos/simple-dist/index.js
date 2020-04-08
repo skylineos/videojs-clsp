@@ -1,5 +1,15 @@
 'use strict';
 
+function displayVersions () {
+  document.title = `v${window.clspUtils.version} ${document.title}`;
+
+  const pageTitle = document.getElementById('page-title').innerHTML;
+  document.getElementById('page-title').innerHTML = `${pageTitle} <br /> v${window.clspUtils.version}`;
+
+  document.getElementById('videojs-version').innerHTML += window.videojs.VERSION;
+  document.getElementById('videojs-errors-version').innerHTML += window.videojsErrors.VERSION;
+}
+
 function onPlay () {
   if (!window.player) {
     return;
@@ -35,7 +45,9 @@ function onDestroy () {
   window.player = null;
 }
 
-function main () {
+function initialize () {
+  displayVersions();
+
   window.player = window.videojs('my-video');
 
   if (window.clspUtils.supported()) {
@@ -50,3 +62,11 @@ function main () {
     });
   });
 }
+
+window.clspPlayerControls = {
+  initialize: initialize,
+  onPlay: onPlay,
+  onStop: onStop,
+  onFullscreen: onFullscreen,
+  onDestroy: onDestroy,
+};

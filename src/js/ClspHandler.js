@@ -1,7 +1,9 @@
 // NOTE: This is configured as an external library by webpack, so the caller
 // must provide videojs on `window`
 import videojs from 'video.js';
-import { v4 as uuidv4 } from 'uuid';
+import {
+  v4 as uuidv4,
+} from 'uuid';
 import IovCollection from '@skylineos/clsp-player/src/js/iov/IovCollection';
 
 import utils from './utils';

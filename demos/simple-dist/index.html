@@ -59,7 +59,7 @@
           disabled
         />
         <button
-          onclick="changeSrc()"
+          onclick="window.clspPlayerControls.changeSrc()"
           title="Change Stream"
           disabled
         >Change Stream</button>
@@ -82,25 +82,25 @@
       </div>
       <div class="controls">
         <button
-          onclick="onPlay()"
+          onclick="window.clspPlayerControls.onPlay()"
           title="play"
         >
           <i class="fas fa-play"></i>
         </button>
         <button
-          onclick="onStop()"
+          onclick="window.clspPlayerControls.onStop()"
           title="stop"
         >
           <i class="fas fa-stop"></i>
         </button>
         <button
-          onclick="onFullscreen()"
+          onclick="window.clspPlayerControls.onFullscreen()"
           title="fullscreen"
         >
           <i class="fas fa-expand"></i>
         </button>
         <button
-          onclick="onDestroy()"
+          onclick="window.clspPlayerControls.onDestroy()"
           title="destroy"
         >
           <i class="fas fa-bomb"></i>
@@ -118,15 +118,7 @@
     ></script>
 
     <script type="text/javascript">
-      document.title = `v${window.clspUtils.version} ${document.title}`;
-
-      const pageTitle = document.getElementById('page-title').innerHTML;
-      document.getElementById('page-title').innerHTML = `${pageTitle} <br /> v${window.clspUtils.version}`;
-
-      document.getElementById('videojs-version').innerHTML += window.videojs.VERSION;
-      document.getElementById('videojs-errors-version').innerHTML += window.videojsErrors.VERSION;
-
-      main();
+      window.clspPlayerControls.initialize();
     </script>
   </body>
 </html>
