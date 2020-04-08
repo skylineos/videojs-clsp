@@ -55,7 +55,7 @@ npm i @babel/polyfill @skylineos/videojs-clsp
 
 NOTE: See `demos/simple-dist/` and `demos/advanced-dist/` for full examples.
 
-`@babel/polyfill` and `video.js` MUST be sourced/included prior to the plugin.
+NOTE: `@babel/polyfill`, `video.js`, `videojs-errors` MUST be sourced/included prior to the plugin.
 
 ### `<head>` Tag
 
@@ -138,9 +138,12 @@ Note that for `clsp` streams, the `src` tag must have a `type` attribute with a 
 </div>
 ```
 
+
 ## Using with `src` assets
 
 NOTE: See `demos/simple-src/` and `demos/advanced-src/` for full examples.
+
+NOTE: `@babel/polyfill`, `video.js`, `videojs-errors` MUST be sourced/included prior to the plugin.
 
 ### JS
 
