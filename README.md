@@ -1,106 +1,63 @@
 # Skyline CLSP VideoJS Plugin <!-- omit in toc -->
 
-A videojs plugin that adds support for video served over the `clsp` protocol.
-Currently, this protocol is available only via Skyline's SFS solutions.
+A `videojs` plugin that adds support for video served over the `clsp` protocol, which is a proprietary near-real-time video streaming protocol only available via Skyline's SFS solutions.
 
-Note - this plugin currently only works in Chrome and Firefox.  Chrome is recommended for performance.
-Note - this highest h.264 keyframe/iframe segment frequency this plugin currently supports is 2 per second.  This is different from frames per second.
+`clsp` protocol support is provided by [https://github.com/skylineos/clsp-player](https://github.com/skylineos/clsp-player).
+
+Note that if you do not specifically need `video.js`, we recommend you use [`clsp-player`](https://github.com/skylineos/clsp-player) as it is more performant and has better memory management.
+
 
 ## Table of Contents <!-- omit in toc -->
 
-- [URL Structure](#url-structure)
-  - [Tokenization](#tokenization)
-    - [Hash](#hash)
-- [Installation](#installation)
-  - [Via NPM](#via-npm)
-  - [Via Git](#via-git)
-- [Usage](#usage)
-  - [`<head>` Tag](#head-tag)
-  - [`<video>` tag](#video-tag)
-  - [`<script>` Tag](#script-tag)
 - [Supported Browsers](#supported-browsers)
+- [URL Structure](#url-structure)
+- [Installation](#installation)
+  - [Via Yarn](#via-yarn)
+  - [Via NPM](#via-npm)
+- [Using with `dist` assets](#using-with-dist-assets)
+  - [`<head>` Tag](#head-tag)
+  - [`<script>` Tag](#script-tag)
+  - [`<video>` tag](#video-tag)
+- [Using with `src` assets](#using-with-src-assets)
+  - [JS](#js)
+  - [Styles (SASS)](#styles-sass)
+- [Supported Browsers](#supported-browsers-1)
 - [Dependencies](#dependencies)
-- [References](#references)
+
+
+## Supported Browsers
+
+This plugin can only support browsers that are supported by the `clsp-player`.  See [https://github.com/skylineos/clsp-player](https://github.com/skylineos/clsp-player) for the list of supported browsers.
+
 
 ## URL Structure
 
-The new network protocol is handled by specifying the following URI format:
+See [https://github.com/skylineos/clsp-player](https://github.com/skylineos/clsp-player) for the URL structure for `clsp` stream URLs.
 
-`[clsp protocol] :// [sfs-ip-address] : [port-number-of-web-socket] / [stream-name]`
-
-* clsp or clsps
-* the ip address is that of the SFS
-* the port is not necessary unless it is something other than 80 or 443
-* the stream name as defined on the SFS
-
-Example stream url:
-
-`clsp://172.28.12.57/FairfaxVideo0520`
-
-### Tokenization
-
-With the latest version of the CLSP plugin, you are able to control stream
-access with two diferent token methods.
-
-#### Hash
-
-The MD5 hash authentication method provides authentication as well as stream
-access time.
-
-`[clsp protocol]-hash://[sfs-ip-address]:[port-number-of-web-socket]/[stream-name]?start=[time-epoch-seconds]&end=[time-epoch-seconds]&token=[hash-token]`
-
-The token is created by appending a shared secret to the url. That new string is
-used to create an MD5 hash. The shared secret must first be set up on the SFS and
-the stream-requesting application.
-
-> NOTE: When using the Hash method of authentication, the `[port-number-of-web-socket]` is a `REQUIRED` parameter.
-
-In order to play a video stream that has Hash authentication enabed, there are 3 query parameters you need to pass
-along with your URL. Here is the structure of a clsp/clsps hash enabled url.
-
-```
-clsps-hash://<host>[:port]/stream?start={epoch_seconds}&end={epoch_seconds}&token={hashed_url}
-
-clsp-hash://<host>[:port]/stream?start={epoch_seconds}&end={epoch_seconds}&token={hashed_url}
-```
-
-- `start` contains the earliest time you want the stream to become available.
-- `end` contains the latest time you want the stream to become available.
-- `token` contains the entire url sans token, md5 + secret
 
 ## Installation
 
+
+### Via Yarn
+
+```
+yarn add @skylineos/videojs-clsp
+```
+
 ### Via NPM
 
-Add the following entry to your `package.json` `dependencies` object:
-
-```javascript
-"dependencies": {
-  // ...
-  "videojs-clsp": "git+https://github.com/skylineos/videojs-clsp.git#v0.15.0",
-}
+```
+npm i @skylineos/videojs-clsp
 ```
 
-This plugin is not currently published on NPM.  We will be publishing it soon.
 
+## Using with `dist` assets
 
-### Via Git
-
-```
-git clone https://github.com/skylineos/videojs-clsp.git
-cd videojs-clsp
-yarn install
-```
-
-## Usage
+NOTE: See `demos/simple-dist/` and `demos/advanced-dist/` for full examples.
 
 `@babel/polyfill` and `video.js` MUST be sourced/included prior to the plugin.
 
-See `demo/simpleWithVideoJs.html` for a full example.
-
 ### `<head>` Tag
-
-In the `<head>` of your page, include a line for the videojs and the clsp plugin styles:
 
 ```html
 <head>
@@ -114,28 +71,54 @@ In the `<head>` of your page, include a line for the videojs and the clsp plugin
     type="text/javascript"
     src="//cdn.jsdelivr.net/npm/@babel/polyfill@7.8.7/dist/polyfill.min.js"
   ></script>
+  <!-- VideoJS -->
+  <script
+    type="text/javascript"
+    src="//vjs.zencdn.net/7.7.5/video.min.js"
+  ></script>
+  <!-- VideoJS Errors -->
+  <script
+    type="text/javascript"
+    src="//cdn.jsdelivr.net/npm/videojs-errors@4.3.2/dist/videojs-errors.min.js"
+  ></script>
 <head>
 ```
 
+### `<script>` Tag
+
+```html
+<!-- CLSP VideoJS Plugin -->
+<script src="/path/to/dist/videojs-clsp.min.js"></script>
+
+<script>
+  // construct the player
+  var player = window.videojs('my-video');
+
+  // Only use CLSP if in a supported browser
+  if (window.clspUtils.supported()) {
+    // Note - This must be executed prior to playing the video for CLSP streams
+    window.player.clsp();
+  }
+
+  // When the player is ready, start playing the stream
+  window.player.on('ready', function () {
+    // Even though the "ready" event has fired, it's not actually ready
+    // until the "next tick"...
+    setTimeout(function () {
+      window.player.play();
+    });
+  });
+</script>
+```
 
 ### `<video>` tag
 
-We recommend wrapping the `video` tag in a container element (e.g. `div`) that
-the CLSP plugin can mutate as needed.  The CLSP plugin needs to perform some
-actions on the `video` element as well as its container.
+NOTE: with `clsp-player`, it is recommended that you have an "extra" container element wrapping your video element.  When using `video.js`, a wrapper element will be created for you, so the extra one is not needed.
 
-On the HTML `video` tag, the `type` attribute must be the following:
-
-`video/mp4; codecs='avc1.42E01E'`
-
-This tells the browser exactly what codec to use to decode and play the video.
-H.264 baseline 3.0 is a least common denominator codec supported on all browsers
-(according to the MSE development page).
-
-Here is a sample video element that defines a CLSP and an HLS stream
+Note that for `clsp` streams, the `src` tag must have a `type` attribute with a value of `video/mp4; codecs='avc1.42E01E'`.
 
 ```html
-<div>
+<div class="video-container">
   <video
     id="my-video"
     class="video-js vjs-default-skin"
@@ -143,40 +126,62 @@ Here is a sample video element that defines a CLSP and an HLS stream
   >
     <!-- CLSP Stream -->
     <source
-      src="clsp://8.15.251.53/FairfaxVideo0510"
+      src="clsp://172.28.12.57/FairfaxVideo0510"
       type="video/mp4; codecs='avc1.42E01E'"
     />
     <!-- HLS Stream -->
     <source
-      src="http://8.15.251.53:1935/rtplive/FairfaxVideo0510/playlist.m3u8"
+      src="http://172.28.12.57:1935/rtplive/FairfaxVideo0510/playlist.m3u8"
       type="application/x-mpegURL"
     />
   </video>
 </div>
 ```
 
+## Using with `src` assets
 
-### `<script>` Tag
+NOTE: See `demos/simple-src/` and `demos/advanced-src/` for full examples.
 
-This is the simplest case. Get the script in whatever way you prefer and include the plugin _after_ you include [video.js][videojs], so that the `videojs` global is available.
+### JS
 
-```html
-<!-- VideoJS -->
-<script src="//vjs.zencdn.net/7.7.5/video.min.js"></script>
-<!-- CLSP Plugin -->
-<script src="/path/to/dist/videojs-clsp.min.js"></script>
+```js
+import '@babel/polyfill';
+import videojs from 'video.js';
+import videojsErrors from 'videojs-errors/dist/videojs-errors.es';
 
-<script>
-  // construct the player
-  var player = videojs('my-video');
+import clspUtils from '@skylineos/videojs-clsp/src/js/utils';
+import clspPlugin from '@skylineos/videojs-clsp/src/js/plugin';
 
-  // Only use CLSP if in a supported browser
-  if (window.clspUtils.supported()) {
-    // Note - This must be executed prior to playing the video for CLSP streams
-    player.clsp();
-  }
-</script>
+clspPlugin().register();
+
+const player = videojs('my-video', {
+  autoplay: true,
+  muted: true,
+  preload: 'auto',
+  controls: false,
+  sources: [
+    {
+      src: 'clsp://172.28.12.57/FairfaxVideo0510',
+      type: "video/mp4; codecs='avc1.42E01E'",
+    },
+    {
+      src: 'http://172.28.12.57:1935/rtplive/FairfaxVideo0510/playlist.m3u8',
+      type: 'application/x-mpegURL',
+    },
+  ],
+});
+
+if (clspUtils.supported()) {
+  player.clsp();
+}
 ```
+
+### Styles (SASS)
+
+```scss
+@import '/path/to/node_modules/@skylineos/videojs-clsp/src/styles/videojs-clsp.scss';
+```
+
 
 ## Supported Browsers
 
@@ -191,9 +196,3 @@ Chrome 53+ or Firefox are the browsers that this plugin currently supports.  All
 
 We recommend using `videojs-errors`.  Version `4.3.2` is recommended, because as of version `4.2.0`, it allows us to re-register successive errors to respond to successfive failures as necessary to support stream recovery.
 
-
-## References
-
-* [https://videojs.com/](https://videojs.com/)
-* [https://docs.videojs.com/](https://docs.videojs.com/)
-* [https://videojs.com/plugins/](https://videojs.com/plugins/)

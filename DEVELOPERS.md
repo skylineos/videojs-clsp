@@ -1,73 +1,32 @@
-# videojs-clsp Developer Notes
+# videojs-clsp Developer Notes <!-- omit in toc -->
+
+## Table of Contents <!-- omit in toc -->
+
+- [Getting Started](#getting-started)
+  - [Prepare Node Environment](#prepare-node-environment)
+  - [Run test server](#run-test-server)
+- [Versioning](#versioning)
+- [Publishing](#publishing)
+- [References](#references)
+
 
 ## Getting Started
 
-1. Install node 10.15 via nvm or tj/n
-1. Install yarn using one of the following methods:
-    * via yarn's site - [https://yarnpkg.com/en/docs/install](https://yarnpkg.com/en/docs/install)
-    * via yvm - [https://yvm.js.org/docs/overview](https://yvm.js.org/docs/overview)
+### Prepare Node Environment
+
+1. Install latest NodeJS LTS version using `tj/n`:
+    * [https://github.com/tj/n](https://github.com/tj/n)
+    * Note if you're on Windows, you'll have to use a different node installation method
+1. Install latest Yarn v1:
+    * [https://classic.yarnpkg.com/en/docs/install#debian-stable](https://classic.yarnpkg.com/en/docs/install#debian-stable)
 1. `yarn install`
-1. `yarn run serve`
 
-## Webpack
-
-When using with Webpack, you will need to register the global videojs in your webpack config file:
-
-```javascript
-{
-  // ...
-  alias: {
-    'video.js$': path.resolve(__dirname, 'node_modules', 'video.js'),
-  }
-}
-```
-
-In your code, you will need to set videojs on the window prior to requiring this plugin:
-
-```javascript
-import '@babel/polyfill';
-import videojs from 'video.js';
-
-window.videojs = videojs;
-
-// The actual plugin function is exported by this module, but it is also
-// attached to the `Player.prototype`; so, there is no need to assign it
-// to a variable.
-require('videojs-clsp');
-
-const player = videojs('my-video');
-
-// Only use CLSP if in a supported browser
-if (window.clspUtils.supported()) {
-  // Note - This must be executed prior to playing the video for CLSP streams
-  player.clsp();
-}
-```
-
-## Development Environment
-
-Node 10.15.x is required to run the necessary build and development scripts.
-
-One option for installing node in a development environment is to use the node version manager ["n"](https://github.com/tj/n).  If you're using Windows, you can get an installer from [Node's website](https://nodejs.org/en/download/).
-
-
-## Build
-
-Note: If you ae installing on ubuntu the package for nodejs is way out of date, you will need to follow the instructions here to upgrade node: https://github.com/tj/n
-
-After making changes to the plugin, build the project to generate a distributable, standalone file:
-
-```
-yarn run build
-```
-
-The generated files will be available in the `dist` directory.
-
-
-## Run test server
+### Run test server
 
 1. `yarn run serve`
-1. navigate to [http://localhost:8080](http://localhost:8080) in Chrome
+    * set `DEV_SERVER_HOST` to change the default host of `0.0.0.0`
+    * set `DEV_SERVER_PORT` to change the port of `8080`
+1. navigate to [http://localhost:8080](http://localhost:8080) in a supported browser
 1. add a `clsp` url to any of the inputs, then click submit
 1. click play on the video element (if not using an autoplay player)
 
@@ -83,9 +42,28 @@ The generated files will be available in the `dist` directory.
 yarn version --new-version 1.2.3+4
 ```
 
+## Publishing
+
+1. You MUST be on an unmodified checkout of the `git` tag you intend to publish.  i.e, `git status` should show:
+    1. You have a tag checked out
+    1. There are no changes staged for commit
+1. You MUST have already run `yarn install`, since the dependencies are necessary for building and publishing
+1. You MUST be logged in to the public npm registry
+1. You MUST have access to the `skylineos` organization on npm
+1. You MUST ONLY publish releases (e.g. `0.18.0`) or pre-releases (e.g. `0.18.0-4`) - no builds or anything else without approval
+
+When the above checklist is complete, publish via:
+
+```
+npm publish
+```
+
 
 ## References
 
-1. [https://github.com/videojs/generator-videojs-plugin](https://github.com/videojs/generator-videojs-plugin)
-1. [https://github.com/videojs/Video.js/blob/master/docs/guides/plugins.md](https://github.com/videojs/Video.js/blob/master/docs/guides/plugins.md)
-1. [https://github.com/videojs/generator-videojs-plugin/blob/master/docs/conventions.md](https://github.com/videojs/generator-videojs-plugin/blob/master/docs/conventions.md)
+* [https://videojs.com/](https://videojs.com/)
+* [https://docs.videojs.com/](https://docs.videojs.com/)
+* [https://videojs.com/plugins/](https://videojs.com/plugins/)
+* [https://github.com/videojs/generator-videojs-plugin](https://github.com/videojs/generator-videojs-plugin)
+* [https://github.com/videojs/Video.js/blob/master/docs/guides/plugins.md](https://github.com/videojs/Video.js/blob/master/docs/guides/plugins.md)
+* [https://github.com/videojs/generator-videojs-plugin/blob/master/docs/conventions.md](https://github.com/videojs/generator-videojs-plugin/blob/master/docs/conventions.md)
