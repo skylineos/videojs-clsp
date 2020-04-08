@@ -3,7 +3,8 @@
 @import '../../node_modules/@skylineos/clsp-player/src/styles/clsp-player.scss';
 
 .video-js {
-  // This class is added to the video.js element by this CLSP plugin by default
+  // This class is added to the video.js element by this CLSP VideoJS Plugin by
+  // default
   &.vjs-clsp {
     display: block;
   }

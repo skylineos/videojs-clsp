@@ -26,7 +26,7 @@ export default (defaultOptions = {}) => class ClspPlugin extends Plugin {
 
   static register () {
     if (videojs.getPlugin(utils.name)) {
-      throw new Error('You can only register the clsp plugin once, and it has already been registered.');
+      throw new Error('You can only register the CLSP VideoJS Plugin once, and it has already been registered.');
     }
 
     const sourceHandler = ClspSourceHandler()('html5');
@@ -60,7 +60,7 @@ export default (defaultOptions = {}) => class ClspPlugin extends Plugin {
     super(player, options);
 
     this.id = ++totalPluginCount;
-    this.logger = utils.Logger().factory(`CLSP Plugin ${this.id}`);
+    this.logger = utils.Logger().factory(`CLSP VideoJS Plugin ${this.id}`);
 
     this.logger.debug('creating plugin instance');
 
@@ -344,7 +344,7 @@ export default (defaultOptions = {}) => class ClspPlugin extends Plugin {
 
     // Note that when the 'dispose' event is fired, this.player no longer exists
     if (!player) {
-      this.logger.warn('Unable to destroy CLSP Plugin without the player!');
+      this.logger.warn('Unable to destroy CLSP VideoJS Plugin without the player!');
       return;
     }
 
@@ -381,7 +381,7 @@ export default (defaultOptions = {}) => class ClspPlugin extends Plugin {
     }
     catch (error) {
       // @todo - need to improve iov destroy logic...
-      this.logger.error('Error while destroying clsp plugin instance!');
+      this.logger.error('Error while destroying CLSP VideoJS Plugin instance!');
       this.logger.error(error);
     }
   }
