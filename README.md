@@ -41,13 +41,13 @@ See [https://github.com/skylineos/clsp-player](https://github.com/skylineos/clsp
 ### Via Yarn
 
 ```
-yarn add @skylineos/videojs-clsp
+yarn add @babel/polyfill @skylineos/videojs-clsp
 ```
 
 ### Via NPM
 
 ```
-npm i @skylineos/videojs-clsp
+npm i @babel/polyfill @skylineos/videojs-clsp
 ```
 
 
