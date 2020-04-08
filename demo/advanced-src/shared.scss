@@ -2,6 +2,10 @@ $icon-font-path: '~videojs-font/fonts';
 
 @import '../../node_modules/@skylineos/clsp-player/demo/advanced/styles.scss';
 
+.vjs-control-bar {
+  display: none !important;
+}
+
 .header {
   .versions {
     display: flex;

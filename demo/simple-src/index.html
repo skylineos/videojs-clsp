@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CLSP VideoJS Plugin Simple Demo ~ DIST ~</title>
+    <link
+      rel="shortcut icon"
+      href="../favicon.ico"
+    >
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    >
+    <link
+      rel="stylesheet"
+      href="../../dist/demo-simple-src.css"
+    >
+  </head>
+  <body>
+    <div class="header">
+      <img src="../skyline_logo.png" />
+      <h1 id="page-title">CLSP VideoJS Plugin Simple Demo <br /> ~ DIST ~</h1>
+      <div class="versions">
+        <div class="version">
+          <span class="product">videojs</span>
+          <span id="videojs-version">v</span>
+        </div>
+        <div class="version">
+          <span class="product">videojs-errors</span>
+          <span id="videojs-errors-version">v</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content container-fit">
+      <div class="video-container container-fit">
+        <video
+          id="my-video"
+          class="video-js vjs-default-skin"
+          muted
+        >
+          <source
+            src="clsp://172.28.12.57/FairfaxVideo0520"
+            type="video/mp4; codecs='avc1.42E01E'"
+          />
+          <source
+            src="http://172.28.12.57:1935/rtplive/FairfaxVideo0510/playlist.m3u8"
+            type="application/x-mpegURL"
+          />
+        </video>
+      </div>
+      <div class="controls">
+        <button onclick="onPlay()" title="play"><i class="fas fa-play"></i></button>
+        <button onclick="onStop()" title="stop"><i class="fas fa-stop"></i></button>
+        <button onclick="onFullscreen()" title="fullscreen"><i class="fas fa-expand"></i></button>
+        <button onclick="onDestroy()" title="destroy"><i class="fas fa-bomb"></i></button>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="../../dist/demo-simple-src.js"
+    ></script>
+  </body>
+</html>

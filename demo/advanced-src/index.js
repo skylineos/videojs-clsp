@@ -13,8 +13,8 @@ import {
   initLocalStorage,
 } from './shared';
 
-import utils from '~root/src/js/utils';
-import plugin from '~root/src/js/plugin';
+import clspUtils from '~root/src/js/utils';
+import clspPlugin from '~root/src/js/plugin';
 
 let wallPlayers = [];
 
@@ -112,10 +112,10 @@ function createPlayer (index, playerOptions) {
 $(() => {
   const localStorageName = 'videojs-clsp-advanced-demo-src';
 
-  document.title = `v${utils.version} ${document.title}`;
+  document.title = `v${clspUtils.version} ${document.title}`;
 
   const pageTitle = $('#page-title').html();
-  $('#page-title').html(`${pageTitle} <br /> v${utils.version}`);
+  $('#page-title').html(`${pageTitle} <br /> v${clspUtils.version}`);
 
   $('#videojs-version').html(videojs.VERSION);
   $('#videojs-errors-version').html(videojsErrors.VERSION);
@@ -136,5 +136,5 @@ $(() => {
     destroyAllPlayers,
   );
 
-  plugin().register();
+  clspPlugin().register();
 });
