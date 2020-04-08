@@ -1,18 +1,1 @@
-$icon-font-path: '~videojs-font/fonts';
-
-@import '../../node_modules/@skylineos/clsp-player/demo/advanced/styles.scss';
-
-.page-header {
-  h1 {
-    text-align: center;
-  }
-}
-
-.dependency-versions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.tours-stream-config {
-  display: none !important;
-}
+@import '../advanced-src/shared.scss';

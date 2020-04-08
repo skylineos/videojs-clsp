@@ -31,12 +31,8 @@
   <body>
     <div class="header">
       <img src="./skyline_logo.png" />
-      <h1>CLSP VideoJS Plugin Demos</h1>
+      <h1 id="page-title">CLSP VideoJS Plugin Demos</h1>
       <div class="versions">
-        <div class="version">
-          <span class="product">videojs-clsp</span>
-          <span id="videojs-clsp-version">v</span>
-        </div>
         <div class="version">
           <span class="product">videojs</span>
           <span id="videojs-version">v</span>
@@ -47,25 +43,33 @@
         </div>
       </div>
     </div>
-    <div class="buttons-container">
-      <div class="buttons">
-        <button
-          onclick="location.href = 'advanced-dist/';"
-        >Advanced Demo<br />~ DIST ~</button>
-        <button
-          onclick="location.href = 'advanced-src/';"
-        >Advanced Demo<br />~ SRC ~</button>
-        <button
-          onclick="location.href = 'simple/';"
-        >Simple Demo</button>
-        <button
-          onclick="location.href = 'tours/';"
-          disabled
-        >Tour Demo</button>
+
+    <div class="content container-fit">
+      <div class="buttons-container">
+        <div class="buttons">
+          <button
+            onclick="location.href = 'advanced-dist/';"
+          >Advanced Demo<br />~ DIST ~</button>
+          <button
+            onclick="location.href = 'advanced-src/';"
+          >Advanced Demo<br />~ SRC ~</button>
+          <button
+            onclick="location.href = 'simple/';"
+          >Simple Demo</button>
+          <button
+            onclick="location.href = 'tours/';"
+            disabled
+          >Tour Demo</button>
+        </div>
       </div>
     </div>
+
     <script type="text/javascript">
-      document.getElementById('videojs-clsp-version').innerHTML += window.clspUtils.version;
+      document.title = `v${window.clspUtils.version} ${document.title}`;
+
+      const pageTitle = document.getElementById('page-title').innerHTML;
+      document.getElementById('page-title').innerHTML = `${pageTitle} <br /> v${window.clspUtils.version}`;
+
       document.getElementById('videojs-version').innerHTML += window.videojs.VERSION;
       document.getElementById('videojs-errors-version').innerHTML += window.videojsErrors.VERSION;
     </script>

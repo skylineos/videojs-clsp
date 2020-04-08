@@ -102,24 +102,28 @@ function createPlayer (index, playerOptions) {
 }
 
 $(() => {
-  const name = 'videojs-clsp-advanced-demo-dist';
+  const localStorageName = 'videojs-clsp-advanced-demo-dist';
 
-  $('#page-title-version').html(window.clspUtils.version);
-  $('#page-title-videojs-version').html(window.videojs.VERSION);
-  $('#page-title-videojs-error-version').html(window.videojsErrors.VERSION);
+  document.title = `v${window.clspUtils.version} ${document.title}`;
+
+  const pageTitle = $('#page-title').html();
+  $('#page-title').html(`${pageTitle} <br /> v${window.clspUtils.version}`);
+
+  $('#videojs-version').html(window.videojs.VERSION);
+  $('#videojs-errors-version').html(window.videojsErrors.VERSION);
 
   window.HELP_IMPROVE_VIDEOJS = false;
 
   // Tours for videojs are not yet implemented
   initLocalStorage(
-    name,
+    localStorageName,
     'tours-enabled',
     'checkbox',
     false,
   );
 
   initializeWall(
-    name,
+    localStorageName,
     createPlayer,
     destroyAllPlayers,
   );

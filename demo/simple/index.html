@@ -37,12 +37,8 @@
   <body>
     <div class="header">
       <img src="../skyline_logo.png" />
-      <h1>CLSP VideoJS Plugin Simple Demo</h1>
+      <h1 id="page-title">CLSP VideoJS Plugin Simple Demo</h1>
       <div class="versions">
-        <div class="version">
-          <span class="product">videojs-clsp</span>
-          <span id="videojs-clsp-version">v</span>
-        </div>
         <div class="version">
           <span class="product">videojs</span>
           <span id="videojs-version">v</span>
@@ -54,8 +50,8 @@
       </div>
     </div>
 
-    <div class="content">
-      <div class="video-container">
+    <div class="content container-fit">
+      <div class="video-container container-fit">
         <video
           id="my-video"
           class="video-js vjs-default-skin"
@@ -89,7 +85,11 @@
     ></script>
 
     <script type="text/javascript">
-      document.getElementById('videojs-clsp-version').innerHTML += window.clspUtils.version;
+      document.title = `v${window.clspUtils.version} ${document.title}`;
+
+      const pageTitle = document.getElementById('page-title').innerHTML;
+      document.getElementById('page-title').innerHTML = `${pageTitle} <br /> v${window.clspUtils.version}`;
+
       document.getElementById('videojs-version').innerHTML += window.videojs.VERSION;
       document.getElementById('videojs-errors-version').innerHTML += window.videojsErrors.VERSION;
 
