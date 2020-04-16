@@ -3,8 +3,9 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [Getting Started](#getting-started)
-    - [Prepare Node Environment](#prepare-node-environment)
-    - [Run test server](#run-test-server)
+    - [Prepare Node environment](#prepare-node-environment)
+    - [Run development server](#run-development-server)
+    - [Lint](#lint)
 - [Versioning](#versioning)
 - [Publishing](#publishing)
 - [References](#references)
@@ -12,7 +13,7 @@
 
 ## Getting Started
 
-### Prepare Node Environment
+### Prepare Node environment
 
 1. Install latest NodeJS LTS version using `tj/n`:
     * [https://github.com/tj/n](https://github.com/tj/n)
@@ -21,7 +22,7 @@
     * [https://classic.yarnpkg.com/en/docs/install#debian-stable](https://classic.yarnpkg.com/en/docs/install#debian-stable)
 1. `yarn install`
 
-### Run test server
+### Run development server
 
 1. `yarn run serve`
     * set `DEV_SERVER_HOST` to change the default host of `0.0.0.0`
@@ -29,6 +30,14 @@
 1. navigate to [http://localhost:8081](http://localhost:8081) in a supported browser
 1. add a `clsp` url to any of the inputs, then click submit
 1. click play on the video element (if not using an autoplay player)
+
+### Lint
+
+To lint your code after making changes, run:
+
+```
+yarn run lint
+```
 
 
 ## Versioning
