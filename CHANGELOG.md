@@ -4,7 +4,8 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [CLSP VideoJS Plugin](#clsp-videojs-plugin)
-    - [v0.18.0-1 - 2020-04-06 - Critical](#v0180-1---2020-04-06---critical)
+    - [v0.19.0 - 2020-04-30 - Critical](#v0190---2020-04-30---critical)
+    - [v0.18.0 - 2020-04-28 - Critical](#v0180---2020-04-28---critical)
 - [Pre CLSP Player](#pre-clsp-player)
     - [v0.17.0-1 - 2020-02-11 - Critical](#v0170-1---2020-02-11---critical)
     - [v0.16.3 - 2019-08-15 - Recommended](#v0163---2019-08-15---recommended)
@@ -29,7 +30,12 @@
 
 ## CLSP VideoJS Plugin
 
-### v0.18.0-1 - 2020-04-06 - Critical
+### v0.19.0 - 2020-04-30 - Critical
+
+* update CLSP Player to version 0.20.1
+* update README to include example of changing default stream port
+
+### v0.18.0 - 2020-04-28 - Critical
 
 * Update minimum supported Chrome version to 53
 * move `demo` to `demos`

@@ -876,10 +876,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@skylineos/clsp-player@0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@skylineos/clsp-player/-/clsp-player-0.19.0.tgz#531f7b643c0d331eb124d902066afc7b5a0e6db2"
-  integrity sha512-LR0+fO0aN+77KjUp9zz85zzzKkr02oMZaiTtesVjjHh0t2AjR4wHUDuiTdy+LpNBh6w7WRuy1kCGhnaft+k7OQ==
+"@skylineos/clsp-player@0.20.1":
+  version "0.20.1"
+  resolved "https://registry.yarnpkg.com/@skylineos/clsp-player/-/clsp-player-0.20.1.tgz#93719ecdd7c1876180eef8acaef25de5832394d8"
+  integrity sha512-MdoekMlYfFVJ6OBwb41/n9Cq9iGh8axpzS7P/fMY2auBkyB1WQnxrS394Ul10EyxwzX+DbhwxpcQsAFPkiRTVA==
   dependencies:
     debug "4.1.1"
     lodash "4.17.15"

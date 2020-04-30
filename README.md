@@ -98,6 +98,11 @@ NOTE: `@babel/polyfill`, `video.js`, `videojs-errors` MUST be sourced/included p
   if (window.clspUtils.supported()) {
     // Note - This must be executed prior to playing the video for CLSP streams
     window.player.clsp();
+
+    // If you are using a Skyline SFS that uses a default CLSP stream port that
+    // isn't `80` (e.g. SFS < v5.2.0), you may set the window-level default port
+    // for `clsp` streams:
+    window.clspUtils.setDefaultStreamPort('clsp', 9001);
   }
 
   // When the player is ready, start playing the stream
@@ -126,7 +131,7 @@ Note that for `clsp` streams, the `src` tag must have a `type` attribute with a 
   >
     <!-- CLSP Stream -->
     <source
-      src="clsp://172.28.12.57/FairfaxVideo0510"
+      src="clsp://172.28.12.57:9001/FairfaxVideo0510"
       type="video/mp4; codecs='avc1.42E01E'"
     />
     <!-- HLS Stream -->
@@ -155,6 +160,11 @@ import videojsErrors from 'videojs-errors/dist/videojs-errors.es';
 import clspUtils from '@skylineos/videojs-clsp/src/js/utils';
 import clspPlugin from '@skylineos/videojs-clsp/src/js/plugin';
 
+// If you are using a Skyline SFS that uses a default CLSP stream port that
+// isn't `80` (e.g. SFS < v5.2.0), you may set the window-level default port
+// for `clsp` streams:
+clspUtils.setDefaultStreamPort('clsp', 9001);
+
 clspPlugin().register();
 
 const player = videojs('my-video', {
@@ -164,7 +174,7 @@ const player = videojs('my-video', {
   controls: false,
   sources: [
     {
-      src: 'clsp://172.28.12.57/FairfaxVideo0510',
+      src: 'clsp://172.28.12.57:9001/FairfaxVideo0510',
       type: "video/mp4; codecs='avc1.42E01E'",
     },
     {
