@@ -222,6 +222,13 @@ Note that you will need to apply the appropriate babel config options to the `@s
             'videojs-clsp',
             'src',
           ),
+          path.resolve(
+            __dirname,
+            'node_modules',
+            '@skylineos',
+            'clsp-player',
+            'src',
+          ),
         ],
       },
     ],
