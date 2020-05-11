@@ -1,6 +1,6 @@
 @import './videojs.scss';
 @import './videojs-errors.scss';
-@import '../../node_modules/@skylineos/clsp-player/src/styles/clsp-player.scss';
+@import 'node_modules/@skylineos/clsp-player/src/styles/clsp-player.scss';
 
 .video-js {
   // This class is added to the video.js element by this CLSP VideoJS Plugin by

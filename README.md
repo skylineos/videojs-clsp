@@ -21,6 +21,7 @@ Note that if you do not specifically need `video.js`, we recommend you use [`cls
 - [Using with `src` assets](#using-with-src-assets)
   - [JS](#js)
   - [Styles (SASS)](#styles-sass)
+  - [Babel](#babel)
   - [Webpack](#webpack)
 - [Dependencies](#dependencies)
 
@@ -195,9 +196,45 @@ if (clspUtils.supported()) {
 @import '/path/to/node_modules/@skylineos/videojs-clsp/src/styles/videojs-clsp.scss';
 ```
 
+### Babel
+
+The babel config that is needed to properly build the src assets is located in the file `babel.config.js` at the root of the project.  You will need to use this babel config as part of your build process, e.g. in your webpack configuration.  You can either copy and paste the configuration into your project or import the babel config file.
+
+
 ### Webpack
 
-@todo
+Note that you will need to apply the appropriate babel config options to the `@skylineos/videojs-clsp` src assets.  See the `Babel` section above.  Note that by default, webpack will ignore files in the `node_modules` directory, which means that the `videojs-clsp` src assets will not be parsed by babel.  In order to get webpack to properly handle the files, you will need to add the following rule to your webpack config file:
+
+```js
+{
+  module: {
+    rules: [
+      {
+        // Add the `include` rule to the rule that will end up processing the `videojs-clsp` js, e.g.:
+        // test: /\.js$/,
+        // loader: 'babel-loader?cacheDirectory=true',
+        // options: babelConfig,
+        include: [
+          path.resolve(
+            __dirname,
+            'node_modules',
+            '@skylineos',
+            'videojs-clsp',
+            'src',
+          ),
+          path.resolve(
+            __dirname,
+            'node_modules',
+            '@skylineos',
+            'clsp-player',
+            'src',
+          ),
+        ],
+      },
+    ],
+  },
+},
+```
 
 
 ## Dependencies
