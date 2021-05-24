@@ -93,6 +93,8 @@ export default class ClspHandler extends Component {
     const collection = IovCollection.asSingleton();
     const iov = await collection.create(videoId, this.source_.src);
 
+    // It is unclear why "this.player.on('ready', () => {})" is not working;
+    // however, "this.player.ready()" has worked consistently without any issue
     this.player.ready(() => {
       if (this.onReadyAlreadyCalled) {
         this.logger.warn('tried to use this player more than once...');
