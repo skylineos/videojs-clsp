@@ -1,2 +1,6 @@
 @import 'node_modules/video.js/src/css/video-js.scss';
 // @import 'node_modules/video.js/dist/video-js.css';
+
+.vjs-loading-spinner,.vjs-control-bar {
+    z-index: 2;
+}

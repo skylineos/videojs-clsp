@@ -90,9 +90,10 @@ export default class ClspHandler extends Component {
 
     videoElementParent.insertBefore(videoElement, videoJsVideoElement);
 
-    const iov = await IovCollection.asSingleton().create(videoId, this.source_.src);
+    const collection = IovCollection.asSingleton();
+    const iov = await collection.create(videoId, this.source_.src);
 
-    this.player.on('ready', () => {
+    this.player.ready(() => {
       if (this.onReadyAlreadyCalled) {
         this.logger.warn('tried to use this player more than once...');
         return;
@@ -101,12 +102,6 @@ export default class ClspHandler extends Component {
       this.onReadyAlreadyCalled = true;
 
       const videoTag = this.player.children()[0];
-
-      // @todo - there must be a better way to determine autoplay...
-      if (videoTag.getAttribute('autoplay') !== null) {
-        // playButton.trigger('click');
-        this.player.trigger('play', videoTag);
-      }
 
       iov.on('firstFrameShown', () => {
         this.player.trigger('firstFrameShown');
