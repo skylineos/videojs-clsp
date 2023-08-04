@@ -27,7 +27,7 @@
     "postversion": "./scripts/version.sh --post"
   },
   "dependencies": {
-    "@skylineos/clsp-player": "0.20.1",
+    "@skylineos/clsp-player": "0.20.2",
     "uuid": "7.0.3"
   },
   "devDependencies": {
