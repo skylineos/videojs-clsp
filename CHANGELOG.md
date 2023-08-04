@@ -4,6 +4,7 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [CLSP VideoJS Plugin](#clsp-videojs-plugin)
+    - [v0.19.4 - 2023-08-04 - Recommended](#v0194---2023-08-04---recommended)
     - [v0.19.0 - 2020-04-30 - Critical](#v0190---2020-04-30---critical)
     - [v0.18.0 - 2020-04-28 - Critical](#v0180---2020-04-28---critical)
 - [Pre CLSP Player](#pre-clsp-player)
@@ -29,6 +30,10 @@
 
 
 ## CLSP VideoJS Plugin
+
+### v0.19.4 - 2023-08-04 - Recommended
+
+* update CLSP Player to version 0.20.2 (accessibility improvement)
 
 ### v0.19.0 - 2020-04-30 - Critical
 

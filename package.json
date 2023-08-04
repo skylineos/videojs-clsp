@@ -1,7 +1,7 @@
 {
   "name": "@skylineos/videojs-clsp",
   "title": "Skyline CLSP VideoJS Plugin",
-  "version": "0.19.3",
+  "version": "0.19.4",
   "description": "Video JS plugin for Skyline Technology Solutions' CLSP Player - https://github.com/skylineos/clsp-player",
   "keywords": [
     "html5",
