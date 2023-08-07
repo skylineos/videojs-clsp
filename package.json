@@ -15,9 +15,6 @@
   "license": "MIT",
   "repository": "https://github.com/skylineos/videojs-clsp.git",
   "main": "dist/videojs-clsp.min.js",
-  "engines": {
-    "node": ">=12 <13"
-  },
   "scripts": {
     "build": "./scripts/build/build.sh",
     "serve": "./scripts/serve/serve.sh",
