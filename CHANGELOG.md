@@ -4,6 +4,7 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [CLSP VideoJS Plugin](#clsp-videojs-plugin)
+    - [v0.19.5 - 2023-08-07 - Recommended](#v0195---2023-08-07---recommended)
     - [v0.19.4 - 2023-08-04 - Recommended](#v0194---2023-08-04---recommended)
     - [v0.19.0 - 2020-04-30 - Critical](#v0190---2020-04-30---critical)
     - [v0.18.0 - 2020-04-28 - Critical](#v0180---2020-04-28---critical)
@@ -28,8 +29,11 @@
 - [Appendices](#appendices)
     - [Status Definitions](#status-definitions)
 
-
 ## CLSP VideoJS Plugin
+
+### v0.19.5 - 2023-08-07 - Recommended
+
+* Removes node engine requirement from package.json (which was added in v0.19.4)
 
 ### v0.19.4 - 2023-08-04 - Recommended
 

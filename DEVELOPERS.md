@@ -17,6 +17,7 @@
 
 1. Install latest NodeJS LTS version using `tj/n`:
     * [https://github.com/tj/n](https://github.com/tj/n)
+        * **NOTE:** As of [`v0.19.5`](https://github.com/skylineos/videojs-clsp/releases/tag/v0.19.5), the NodeJS version must be `>=12 <13`.
     * Note if you're on Windows, you'll have to use a different node installation method
 1. Install latest Yarn v1:
     * [https://classic.yarnpkg.com/en/docs/install#debian-stable](https://classic.yarnpkg.com/en/docs/install#debian-stable)
