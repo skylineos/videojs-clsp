@@ -79,6 +79,7 @@ export default class ClspHandler extends Component {
     const videoId = `clsp-video-${uuidv4()}`;
     const videoJsVideoElement = this.player.el().firstChild;
     const videoElementParent = videoJsVideoElement.parentNode;
+    const videoElementParentId = videoElementParent.id;
 
     // when videojs initializes the video element (or something like that),
     // it creates events and listeners on that element that it uses, however
@@ -91,7 +92,13 @@ export default class ClspHandler extends Component {
     videoElementParent.insertBefore(videoElement, videoJsVideoElement);
 
     const collection = IovCollection.asSingleton();
-    const iov = await collection.create(videoId, this.source_.src);
+
+    const iov = await collection.create({
+      videoElement: videoJsVideoElement,
+      videoElementId: videoId,
+      containerElement: videoElementParent,
+      containerElementId: videoElementParentId,
+    });
 
     // It is unclear why "this.player.on('ready', () => {})" is not working;
     // however, "this.player.ready()" has worked consistently without any issue

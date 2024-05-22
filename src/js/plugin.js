@@ -192,11 +192,6 @@ export default (defaultOptions = {}) => class ClspPlugin extends Plugin {
       // @todo - it is probably unnecessary to have to completely tear down the
       // existing iov and create a new one.  But for now, this works
       await this.initializeIov(player);
-
-      // @todo - this hides it permanently.  it should be re-enabled when the
-      // player stops or pauses.  This will likely involve using some videojs
-      // classes rather than using the .hide method
-      this.player.loadingSpinner.hide();
     });
 
     // the "pause" event gets triggered for some reason in scenarios where I do

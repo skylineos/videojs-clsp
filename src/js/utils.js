@@ -6,7 +6,7 @@
  */
 
 const clspPlayerUtils = require('@skylineos/clsp-player/src/js/utils/utils');
-const Logger = require('@skylineos/clsp-player/src/js/utils/logger');
+const Logger = require('@skylineos/clsp-player/src/js/utils/Logger');
 
 const {
   version,
