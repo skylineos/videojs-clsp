@@ -5,6 +5,9 @@
 .video-js {
   // This class is added to the video.js element by this CLSP VideoJS Plugin by
   // default
+  .clsp-player-loading-animation {
+    display: none;
+  }
   &.vjs-clsp {
     display: block;
   }
