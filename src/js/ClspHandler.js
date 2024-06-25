@@ -43,32 +43,7 @@ export default class ClspHandler extends Component {
       throw new Error('Unable to change source because there is no url!');
     }
 
-    const clone = this.iov.clone(url);
-
-    clone.initialize();
-
-    // When the tab is not in focus, chrome doesn't handle things the same
-    // way as when the tab is in focus, and it seems that the result of that
-    // is that the "firstFrameShown" event never fires.  Having the Iov be
-    // updated on a delay in case the "firstFrameShown" takes too long will
-    // ensure that the old Iovs are destroyed, ensuring that unnecessary
-    // socket connections, etc. are not being used, as this can cause the
-    // browser to crash.
-    // Note that if there is a better way to do this, it would likely reduce
-    // the number of try/catch blocks and null checks in the IovPlayer and
-    // MSEWrapper, but I don't think that is likely to happen until the MSE
-    // is standardized, and even then, we may be subject to non-intuitive
-    // behavior based on tab switching, etc.
-    setTimeout(() => {
-      this.updateIov(clone);
-    }, this.changeSourceMaxWait);
-
-    // Under normal circumstances, meaning when the tab is in focus, we want
-    // to respond by switching the Iov when the new Iov Player has something
-    // to display
-    clone.player.on('firstFrameShown', () => {
-      this.updateIov(clone);
-    });
+    this.iov.changeSrc(url);
   };
 
   async createIov (player) {
