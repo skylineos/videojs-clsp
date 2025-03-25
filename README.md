@@ -190,10 +190,10 @@ if (clspUtils.supported()) {
 }
 ```
 
-### Styles (SASS)
+### Styles
 
-```scss
-@import '/path/to/node_modules/@skylineos/videojs-clsp/src/styles/videojs-clsp.scss';
+```css
+@import '/path/to/node_modules/@skylineos/videojs-clsp/src/styles/videojs-clsp.css';
 ```
 
 ### Babel

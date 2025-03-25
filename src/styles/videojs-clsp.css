@@ -1,0 +1,12 @@
+@import './videojs.css';
+@import './videojs-errors.css';
+@import '~root/node_modules/@skylineos/clsp-player/src/styles/clsp-player.css';
+
+.video-js {
+  .clsp-player-loading-animation {
+    display: none;
+  }
+  &.vjs-clsp {
+    display: block;
+  }
+}

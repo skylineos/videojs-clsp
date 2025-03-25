@@ -1,4 +1,4 @@
-import '../styles/videojs-clsp.scss';
+import '../styles/videojs-clsp.css';
 
 import plugin from './plugin';
 import utils from './utils';

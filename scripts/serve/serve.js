@@ -19,17 +19,7 @@ const DEV_SERVER_PORT = Object.prototype.hasOwnProperty.call(process.env, 'DEV_S
 async function main () {
   const webpackDevServer = WebpackDevServer.factory();
 
-  // @todo - if there is a server error, such as trying to serve via port 80,
-  // the error is not caught / handled
-  return new Promise((resolve, reject) => {
-    webpackDevServer.server.listen(
-      DEV_SERVER_PORT,
-      DEV_SERVER_HOST,
-      () => {
-        resolve();
-      },
-    );
-  });
+  await webpackDevServer.server.start();
 }
 
 main()

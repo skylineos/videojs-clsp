@@ -1,4 +1,4 @@
-@import 'node_modules/videojs-errors/src/plugin.scss';
+@import '~root/node_modules/videojs-errors/dist/videojs-errors.css';
 
 .vjs-xs.vjs-error-display .vjs-errors-details,
 .vjs-xs.vjs-error-display .vjs-errors-message {

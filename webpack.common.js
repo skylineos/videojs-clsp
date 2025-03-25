@@ -49,7 +49,7 @@ function generateConfig (name, entry) {
       rules: [
         {
           test: /\.js$/,
-          loader: 'babel-loader?cacheDirectory=true',
+          loader: 'babel-loader',
           options: babelConfig,
           // @see - https://github.com/webpack/webpack/issues/2031
           include: [
@@ -71,7 +71,7 @@ function generateConfig (name, entry) {
         },
         {
           test: /.*clsp-player\/(src|demos).*\.js$/,
-          loader: 'babel-loader?cacheDirectory=true',
+          loader: 'babel-loader',
           options: {
             presets: [
               [
@@ -98,19 +98,15 @@ function generateConfig (name, entry) {
         },
         {
           // @see - https://github.com/webpack-contrib/mini-css-extract-plugin
-          // @see - https://github.com/webpack-contrib/sass-loader
-          test: /\.(sa|sc|c)ss$/,
+          test: /\.css$/,
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: devMode,
-              },
+              options: {},
             },
             'css-loader',
             // @todo
             // 'postcss-loader',
-            'sass-loader',
           ],
         },
       ],
