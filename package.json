@@ -57,7 +57,7 @@
     "standard": "14.3.3",
     "style-loader": "1.2.1",
     "url-loader": "4.1.0",
-    "video.js": "7.7.5",
+    "video.js": "7.14.3",
     "videojs-errors": "4.3.2",
     "webpack": "5.95.0",
     "webpack-bundle-analyzer": "4.10.0",
