@@ -51,7 +51,7 @@
     "humanize": "0.0.9",
     "jquery": "3.5.0",
     "mini-css-extract-plugin": "2.7.6",
-    "moment": "2.29.2",
+    "moment": "2.29.4",
     "pify": "5.0.0",
     "progress-bar-webpack-plugin": "2.1.0",
     "standard": "14.3.3",
