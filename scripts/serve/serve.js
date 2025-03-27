@@ -9,9 +9,6 @@
 
 const WebpackDevServer = require('./WebpackDevServer');
 
-const DEV_SERVER_HOST = Object.prototype.hasOwnProperty.call(process.env, 'DEV_SERVER_HOST')
-  ? process.env.DEV_SERVER_HOST
-  : '0.0.0.0';
 const DEV_SERVER_PORT = Object.prototype.hasOwnProperty.call(process.env, 'DEV_SERVER_PORT')
   ? parseInt(process.env.DEV_SERVER_PORT, 10)
   : 8081;
