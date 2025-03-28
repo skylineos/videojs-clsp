@@ -1,4 +1,4 @@
-@import '~root/node_modules/@skylineos/clsp-player/demos/advanced-src/styles.css';
+@import '~@skylineos/clsp-player/demos/advanced-src/styles.css';
 
 .vjs-control-bar {
   display: none !important;

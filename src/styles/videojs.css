@@ -1,4 +1,4 @@
-@import '~root/node_modules/video.js/dist/video-js.css';
+@import '~video.js/dist/video-js.css';
 
 .vjs-loading-spinner,.vjs-control-bar {
     z-index: 2;
