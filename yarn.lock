@@ -815,10 +815,10 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.28.tgz#d45e01c4a56f143ee69c54dd6b12eade9e270a73"
   integrity sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==
 
-"@skylineos/clsp-player@0.23.13":
-  version "0.23.13"
-  resolved "https://registry.yarnpkg.com/@skylineos/clsp-player/-/clsp-player-0.23.13.tgz#c06c81fe1ac1e77f2dca9694cbd9cd7e57a784b3"
-  integrity sha512-BzKL4rtdjpsMWIOVPtH/3KfjTkIC6iKeoYH6yJpK98NABX3tBLHHnvY5j+phTl1KYkGbAtsAXBo77vCAfLxGiA==
+"@skylineos/clsp-player@0.23.15":
+  version "0.23.15"
+  resolved "https://registry.yarnpkg.com/@skylineos/clsp-player/-/clsp-player-0.23.15.tgz#123ce5f35e4d2e146b1f88da1c0a3a758e03db2c"
+  integrity sha512-2rogXD3JVgMXDxCoJMgoSjipWk3ulc3V6AWrZ92VvDXfKzZPm+XbXkMRAYwL5DAV5nyeCGZmznygLxwhGArBPg==
   dependencies:
     "@babel/runtime-corejs3" "7.26.10"
     eventemitter3 "4.0.7"
