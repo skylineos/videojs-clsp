@@ -54,7 +54,7 @@
     "moment": "2.29.4",
     "pify": "5.0.0",
     "progress-bar-webpack-plugin": "2.1.0",
-    "standard": "14.3.3",
+    "standard": "14.3.4",
     "style-loader": "1.2.1",
     "url-loader": "4.1.0",
     "video.js": "7.21.7",
