@@ -59,7 +59,7 @@
     "url-loader": "4.1.0",
     "video.js": "7.21.7",
     "videojs-errors": "4.3.2",
-    "webpack": "5.95.0",
+    "webpack": "5.104.1",
     "webpack-bundle-analyzer": "4.10.0",
     "webpack-dev-server": "5.2.0",
     "write-file-webpack-plugin": "4.5.1"
